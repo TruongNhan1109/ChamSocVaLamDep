@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import vn.edu.tdc.lamdep.R;
+import vn.edu.tdc.lamdep.Model.Macdep_model;
 
 
 public class MacDep extends Fragment {
