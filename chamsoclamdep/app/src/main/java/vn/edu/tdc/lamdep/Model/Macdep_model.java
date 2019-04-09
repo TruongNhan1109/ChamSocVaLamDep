@@ -1,4 +1,4 @@
-package vn.edu.tdc.lamdep.Model;
+package vn.edu.tdc.lamdep.model;
 
 public class Macdep_model {
 
