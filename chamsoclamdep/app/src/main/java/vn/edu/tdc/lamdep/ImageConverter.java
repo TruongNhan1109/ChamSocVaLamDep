@@ -1,4 +1,4 @@
-package vn.edu.tdc.lamdep.Model;
+package vn.edu.tdc.lamdep;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
