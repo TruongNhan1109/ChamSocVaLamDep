@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 import vn.edu.tdc.lamdep.Adapter.MacDep_Adapter;
 import vn.edu.tdc.lamdep.R;
-import vn.edu.tdc.lamdep.model.Macdep_model;
+import vn.edu.tdc.lamdep.Model.Macdep_model;
 
 public class MacDep extends Fragment {
     // Các thuộc tính

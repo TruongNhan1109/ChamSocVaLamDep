@@ -14,7 +14,7 @@ import org.xmlpull.v1.XmlPullParser;
 import java.util.ArrayList;
 
 import vn.edu.tdc.lamdep.R;
-import vn.edu.tdc.lamdep.model.Macdep_model;
+import vn.edu.tdc.lamdep.Model.Macdep_model;
 
 public class MacDep_Adapter  extends BaseAdapter {
     // Các thuộc tính
