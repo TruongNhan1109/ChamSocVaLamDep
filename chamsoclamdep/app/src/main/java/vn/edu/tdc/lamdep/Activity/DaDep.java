@@ -45,6 +45,9 @@ public class DaDep extends Fragment {
         return rootView;
     }
     public void importDataDaDep(){
+        dsDaDep.add(new danhMucDaDep(1,R.drawable.imagedadep,"Trị Mụn"));
+        dsDaDep.add(new danhMucDaDep(2,R.drawable.icondadep,"Dưỡng ẩm"));
+        dsDaDep.add(new danhMucDaDep(3,R.drawable.icondangdep,"Làm trắng"));
         dsDaDep.add(new danhMucDaDep(1,R.drawable.iconsanpham,"Trị Mụn"));
         dsDaDep.add(new danhMucDaDep(2,R.drawable.icondadep,"Dưỡng ẩm"));
         dsDaDep.add(new danhMucDaDep(3,R.drawable.icondangdep,"Làm trắng"));
