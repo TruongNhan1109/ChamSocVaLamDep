@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,6 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import vn.edu.tdc.lamdep.Activity.DangNhap;
+import vn.edu.tdc.lamdep.Activity.sanPhamActivity;
+import vn.edu.tdc.lamdep.Fragment.DaDep;
+import vn.edu.tdc.lamdep.Fragment.DangDep;
+import vn.edu.tdc.lamdep.Fragment.Home;
+import vn.edu.tdc.lamdep.Fragment.MacDep;
+import vn.edu.tdc.lamdep.Fragment.MakeUp;
+import vn.edu.tdc.lamdep.Fragment.TapLuyen;
+import vn.edu.tdc.lamdep.Fragment.TocDep;
 import vn.edu.tdc.lamdep.R;
 
 
@@ -94,6 +104,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Fragment fragment;
+        Intent intent;
 
         switch (id) {
 
@@ -104,9 +115,8 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_sanpham:
-                fragment = new SanPham();
-                ft.replace(R.id.content_main, fragment);
-                ft.commit();
+                intent = new Intent(this, sanPhamActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.nav_dadep:
@@ -152,7 +162,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_dangnhap:
-                Intent intent = new Intent(this, DangNhap.class);
+                intent = new Intent(this, DangNhap.class);
                 startActivity(intent);
                 break;
         }

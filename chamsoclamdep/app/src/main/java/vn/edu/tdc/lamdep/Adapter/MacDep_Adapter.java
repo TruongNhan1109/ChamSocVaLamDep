@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import vn.edu.tdc.lamdep.Model.Macdep_model;
 import vn.edu.tdc.lamdep.R;
 
-public class MacDep_Adapter  extends BaseAdapter {
+
+
+public class MacDep_Adapter extends BaseAdapter {
     // Các thuộc tính
     private ArrayList<Macdep_model> listFunction;  // Danh sách
     private Context context;   // Màn hình hiện tại
