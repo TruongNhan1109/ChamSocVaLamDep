@@ -2,7 +2,6 @@ package vn.edu.tdc.lamdep.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.pdf.PdfRenderer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -92,7 +90,7 @@ public class sanPhamTapLuyen extends AppCompatActivity {
         progressDialog.show();
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String duongdan = "http://192.168.0.29/server/getsanpham.php?page=" + String.valueOf(Page);
+        String duongdan = "http://192.168.0.30/server/getsanpham.php?page=" + String.valueOf(Page);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
