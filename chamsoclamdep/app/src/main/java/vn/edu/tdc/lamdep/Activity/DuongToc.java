@@ -32,7 +32,7 @@ public class DuongToc extends AppCompatActivity implements SearchView.OnQueryTex
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        // setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

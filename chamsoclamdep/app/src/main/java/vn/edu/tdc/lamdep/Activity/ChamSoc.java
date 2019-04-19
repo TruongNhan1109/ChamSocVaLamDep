@@ -32,9 +32,11 @@ public class ChamSoc extends AppCompatActivity implements SearchView.OnQueryText
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-       // setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);
+  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
 
 
         //Get view from layout
