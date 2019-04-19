@@ -10,14 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-import vn.edu.tdc.lamdep.R;
-
-
-
 import java.util.ArrayList;
+
 import vn.edu.tdc.lamdep.Adapter.DaDepAdapter;
 import vn.edu.tdc.lamdep.Model.danhMucDaDep;
+import vn.edu.tdc.lamdep.R;
 
 
 public class DaDep extends Fragment {

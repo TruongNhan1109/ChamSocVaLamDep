@@ -11,54 +11,54 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import vn.edu.tdc.lamdep.Model.danhMucDaDep;
+import vn.edu.tdc.lamdep.Model.Make_Up_Model;
 import vn.edu.tdc.lamdep.R;
 
-public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
+public class MakeUp_Adapter extends RecyclerView.Adapter<MakeUp_Adapter.ViewHolder>{
 
     private Context context;   // Màn hình hiện tại
     private LayoutInflater inflater;
 
     // Phương thức khởi tạo
-    public DaDepAdapter(Context context, ArrayList<danhMucDaDep> list) {
+    public MakeUp_Adapter(Context context, ArrayList<Make_Up_Model> list) {
         this.context = context;
         this.listFunction = list;
         inflater = LayoutInflater.from(context);
     }
-    public DaDepAdapter() {
+    public MakeUp_Adapter() {
         this.context = context;
         this.listFunction = listFunction;
         inflater = LayoutInflater.from(context);
 
     }
 
-    private ArrayList<danhMucDaDep> listFunction;
+    private ArrayList<Make_Up_Model> listFunction;
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public ImageView imgicon;
         public TextView tvdanhmuc;
         public ViewHolder(View itemView) {
 
             super(itemView);
-            tvdanhmuc = (TextView) itemView.findViewById(R.id.tvdanhmuc);
-            imgicon = (ImageView) itemView.findViewById(R.id.imgicon);
+            tvdanhmuc = (TextView) itemView.findViewById(R.id.tvmakeup);
+            imgicon = (ImageView) itemView.findViewById(R.id.imgmakeup);
         }
     }
 
     @NonNull
     @Override
-    public DaDepAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public MakeUp_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View contactView = inflater.inflate(R.layout.list_item_dadep, viewGroup, false);
+        View contactView = inflater.inflate(R.layout.list_item_makeup, viewGroup, false);
 
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DaDepAdapter.ViewHolder viewHolder, int i) {
-        final danhMucDaDep dm = listFunction.get(i);
+    public void onBindViewHolder(@NonNull MakeUp_Adapter.ViewHolder viewHolder, int i) {
+        final Make_Up_Model dm = listFunction.get(i);
 
 
         // Set từng giá trị lên item

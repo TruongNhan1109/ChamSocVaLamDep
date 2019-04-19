@@ -1,7 +1,14 @@
 package vn.edu.tdc.lamdep.Model;
 
-public class Macdep_model {
+/**
+ * Created by USER on 10/04/2019.
+ */
 
+public class TocDep_Model {
+
+    private int idDanhMuc;
+    private int hinhAnh;
+    private String tenDanhMuc;
 
     public int getIdDanhMuc() {
         return idDanhMuc;
@@ -27,24 +34,11 @@ public class Macdep_model {
         this.tenDanhMuc = tenDanhMuc;
     }
 
-    public String getTongHopPhuongPhap() {
-        return tongHopPhuongPhap;
-    }
-
-    public void setTongHopPhuongPhap(String tongHopPhuongPhap) {
-        this.tongHopPhuongPhap = tongHopPhuongPhap;
-    }
-
-
-    public Macdep_model(int idDanhMuc, int hinhAnh, String tenDanhMuc, String tongHopPhuongPhap) {
+    public TocDep_Model(int idDanhMuc, int hinhAnh, String tenDanhMuc) {
         this.idDanhMuc = idDanhMuc;
         this.hinhAnh = hinhAnh;
         this.tenDanhMuc = tenDanhMuc;
-        this.tongHopPhuongPhap = tongHopPhuongPhap;
     }
 
-    private int idDanhMuc;
-    private int hinhAnh;
-    private String tenDanhMuc;
-    private String tongHopPhuongPhap;
+
 }

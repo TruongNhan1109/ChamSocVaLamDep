@@ -11,75 +11,78 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import vn.edu.tdc.lamdep.Model.danhMucDaDep;
+import vn.edu.tdc.lamdep.Model.KieuToc_Model;
 import vn.edu.tdc.lamdep.R;
 
-public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
+/**
+ * Created by USER on 17/04/2019.
+ */
 
-    private Context context;   // Màn hình hiện tại
+public class KieuToc_Adapter extends RecyclerView.Adapter<KieuToc_Adapter.ViewHolder> {
+
+    // Màn hình hiện tại
+    private Context context;
     private LayoutInflater inflater;
+    private ArrayList<KieuToc_Model> listFunction;
 
     // Phương thức khởi tạo
-    public DaDepAdapter(Context context, ArrayList<danhMucDaDep> list) {
+    public KieuToc_Adapter(Context context, ArrayList<KieuToc_Model> list) {
         this.context = context;
         this.listFunction = list;
         inflater = LayoutInflater.from(context);
     }
-    public DaDepAdapter() {
+    public KieuToc_Adapter() {
         this.context = context;
         this.listFunction = listFunction;
         inflater = LayoutInflater.from(context);
 
     }
 
-    private ArrayList<danhMucDaDep> listFunction;
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView imgicon;
-        public TextView tvdanhmuc;
-        public ViewHolder(View itemView) {
-
-            super(itemView);
-            tvdanhmuc = (TextView) itemView.findViewById(R.id.tvdanhmuc);
-            imgicon = (ImageView) itemView.findViewById(R.id.imgicon);
-        }
-    }
-
     @NonNull
     @Override
-    public DaDepAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public KieuToc_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View contactView = inflater.inflate(R.layout.list_item_dadep, viewGroup, false);
+        View contactView = inflater.inflate(R.layout.list_item_chamsoc, viewGroup, false);
 
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DaDepAdapter.ViewHolder viewHolder, int i) {
-        final danhMucDaDep dm = listFunction.get(i);
-
+    public void onBindViewHolder(@NonNull KieuToc_Adapter.ViewHolder viewHolder, int i) {
+        final KieuToc_Model dm = listFunction.get(i);
 
         // Set từng giá trị lên item
 
         viewHolder.imgicon.setImageResource(dm.getHinhAnh());
-        viewHolder.tvdanhmuc.setText(dm.getTenDanhMuc());
+        viewHolder.tvdanhmuc.setText(dm.getTenbaiviet());
 
 
         // Bắt sự kiện nhấn vào một item
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onItemClickedListener.onItemClick(dm.getIdDanhMuc());
+                onItemClickedListener.onItemClick(dm.getId());
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
         return listFunction.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public ImageView imgicon;
+        public TextView tvdanhmuc;
+        public ViewHolder(View itemView) {
+
+            super(itemView);
+            tvdanhmuc = (TextView) itemView.findViewById(R.id.txtChamSoc1);
+            imgicon = (ImageView) itemView.findViewById(R.id.imgChamSoc1);
+        }
     }
 
     public interface OnItemClickedListener {
@@ -88,14 +91,11 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
     }
 
     // Khai báo một biến interface
-    private DaDepAdapter.OnItemClickedListener onItemClickedListener;
+    private KieuToc_Adapter.OnItemClickedListener onItemClickedListener;
 
     // Tạo setter cho biến interface ta vừa tạo
-    public void setOnItemClickedListener(DaDepAdapter.OnItemClickedListener onItemClickedListener) {
+    public void setOnItemClickedListener(KieuToc_Adapter.OnItemClickedListener onItemClickedListener) {
 
         this.onItemClickedListener = onItemClickedListener;
     }
-
-
-
 }

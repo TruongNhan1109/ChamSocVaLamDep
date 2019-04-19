@@ -1,12 +1,10 @@
 package vn.edu.tdc.lamdep.Activity;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.ListFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import vn.edu.tdc.lamdep.R;
-import vn.edu.tdc.lamdep.Model.danhMucDaDep;
 
 
 public class MainActivity extends AppCompatActivity
@@ -158,12 +155,7 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(this, DangNhap.class);
                 startActivity(intent);
                 break;
-
-
-
         }
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
