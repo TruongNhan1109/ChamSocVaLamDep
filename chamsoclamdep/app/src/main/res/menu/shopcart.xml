@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menugiohang"
+        android:orderInCategory="100"
+        android:title="Giỏ hàng"
+        android:icon="@drawable/add_cart"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuseachview"
+        android:orderInCategory="100"
+        android:title="Search"
+        android:icon="@drawable/searchview"
+        app:showAsAction="always" />
+
+</menu>

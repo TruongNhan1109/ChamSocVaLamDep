@@ -1,7 +1,6 @@
 package vn.edu.tdc.lamdep.Adapter;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,12 @@ import org.xmlpull.v1.XmlPullParser;
 
 import java.util.ArrayList;
 
-import vn.edu.tdc.lamdep.R;
 import vn.edu.tdc.lamdep.Model.Macdep_model;
+import vn.edu.tdc.lamdep.R;
 
-public class MacDep_Adapter  extends BaseAdapter {
+
+
+public class MacDep_Adapter extends BaseAdapter {
     // Các thuộc tính
     private ArrayList<Macdep_model> listFunction;  // Danh sách
     private Context context;   // Màn hình hiện tại
@@ -28,8 +29,6 @@ public class MacDep_Adapter  extends BaseAdapter {
         this.inflater = inflater;
     }
 
-    public MacDep_Adapter(FragmentActivity activity, int list_item_macdep, ArrayList<Macdep_model> arrayListMacdep) {
-    }
 
 
     @Override

@@ -15,6 +15,7 @@ import vn.edu.tdc.lamdep.Model.danhMucDaDep;
 import vn.edu.tdc.lamdep.R;
 
 public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
+
     private Context context;   // Màn hình hiện tại
     private LayoutInflater inflater;
 
