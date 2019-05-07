@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.edu.tdc.lamdep.Activity.ProductLike;
+import vn.edu.tdc.lamdep.Activity.sanPhamTapLuyen;
 import vn.edu.tdc.lamdep.Model.sanPham;
 import vn.edu.tdc.lamdep.R;
 import vn.edu.tdc.lamdep.retrofit.APISERVISE;
@@ -24,10 +26,10 @@ import vn.edu.tdc.lamdep.retrofit.ApiInterface;
 import vn.edu.tdc.lamdep.unitl.CheckConnect;
 
 public class sanPhamTapLuyenAdapter extends BaseAdapter {
-    Context context;
+    sanPhamTapLuyen context;
     ArrayList<sanPham> arrayListtapluyen;
 
-    public sanPhamTapLuyenAdapter(Context context, ArrayList<sanPham> arrayListtapluyen) {
+    public sanPhamTapLuyenAdapter(sanPhamTapLuyen context, ArrayList<sanPham> arrayListtapluyen) {
         this.context = context;
         this.arrayListtapluyen = arrayListtapluyen;
     }
@@ -95,6 +97,7 @@ public class sanPhamTapLuyenAdapter extends BaseAdapter {
                         String ketqua = response.body();
                         if (ketqua.equals("Success")) {
                             CheckConnect.showToast_Short(context, "Yêu thích");
+                            context.refresh();
                         } else {
                             CheckConnect.showToast_Short(context, "Lỗi");
                         }

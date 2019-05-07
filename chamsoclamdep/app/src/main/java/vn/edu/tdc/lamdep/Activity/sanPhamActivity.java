@@ -1,6 +1,7 @@
 package vn.edu.tdc.lamdep.Activity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -9,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +25,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.android.volley.RequestQueue;
@@ -64,6 +67,8 @@ public class sanPhamActivity extends AppCompatActivity
     RecyclerView rvsanphammoinhat;
     sanPhamMoiNhatAdapter moiNhatAdapter;
 
+    UserLocalStore userLocalStore;
+
     public static ArrayList<gioHang> manggiohang;
 
     RecyclerView rvsanphambanchay;
@@ -86,6 +91,7 @@ public class sanPhamActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_san_pham);
+        userLocalStore  = new UserLocalStore(this);
 
         setControl();
         if (CheckConnect.haveNetworkConnection(sanPhamActivity.this)) {
@@ -326,6 +332,26 @@ public class sanPhamActivity extends AppCompatActivity
                         }
                         drawer.closeDrawer(GravityCompat.START);
                         break;
+                    case 5:
+                        if (CheckConnect.haveNetworkConnection(getApplicationContext())) {
+                            Intent intent = new Intent(sanPhamActivity.this, ThoiTrangNam.class);
+                            intent.putExtra("idLoaiSanPham", mangloaisanpham.get(position).getId());
+                            startActivity(intent);
+                        } else {
+                            CheckConnect.showToast_Short(getApplicationContext(), "Bạn kiểm tra lại kết nối!");
+                        }
+                        drawer.closeDrawer(GravityCompat.START);
+                        break;
+                    case 6:
+                        if (CheckConnect.haveNetworkConnection(getApplicationContext())) {
+                            Intent intent = new Intent(sanPhamActivity.this, ThoiTrangNu.class);
+                            intent.putExtra("idLoaiSanPham", mangloaisanpham.get(position).getId());
+                            startActivity(intent);
+                        } else {
+                            CheckConnect.showToast_Short(getApplicationContext(), "Bạn kiểm tra lại kết nối!");
+                        }
+                        drawer.closeDrawer(GravityCompat.START);
+                        break;
                 }
             }
         });
@@ -405,6 +431,7 @@ public class sanPhamActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        User user = userLocalStore.getLoggedInUser();
         switch (item.getItemId()) {
             case R.id.menugiohang:
                 if (CheckConnect.haveNetworkConnection(getApplicationContext())) {
@@ -422,10 +449,64 @@ public class sanPhamActivity extends AppCompatActivity
                     CheckConnect.showToast_Short(getApplicationContext(), "Vui lòng kiểm tra lại kết nối mạng");
                 }
                 break;
+            case R.id.menuLogout:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Logout");
+                builder.setMessage("Username : "+user.username+"\nEmail :"+ user.email);
+                builder.setCancelable(false);
+                builder.setPositiveButton("Trở về", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(sanPhamActivity.this, "Mời bạn tiếp tục mua sắm", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("Logout", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //Code Logout
+                        userLocalStore.clearUserData();
+                        userLocalStore.setUserLoggedIn(false);
+                        Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(loginIntent);
+                        Toast.makeText(sanPhamActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                break;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (authenticate() == true) {
+            displayUserDetails();
+//            userLocalStore.clearUserData();
+//            userLocalStore.setUserLoggedIn(false);
+//            Intent loginIntent = new Intent(this, LoginActivity.class);
+//            startActivity(loginIntent);
+        }
+    }
+
+    private boolean authenticate() {
+        if (userLocalStore.getLoggedInUser() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return false;
+        }
+        return true;
+    }
+
+    private void displayUserDetails() {
+        User user = userLocalStore.getLoggedInUser();
+        Toast.makeText(getApplicationContext(),
+                user.username,
+                Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

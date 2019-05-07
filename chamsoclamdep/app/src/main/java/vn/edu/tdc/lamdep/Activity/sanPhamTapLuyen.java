@@ -37,6 +37,7 @@ import vn.edu.tdc.lamdep.Adapter.sanPhamTapLuyenAdapter;
 import vn.edu.tdc.lamdep.Model.sanPham;
 import vn.edu.tdc.lamdep.R;
 import vn.edu.tdc.lamdep.unitl.CheckConnect;
+import vn.edu.tdc.lamdep.unitl.server;
 
 public class sanPhamTapLuyen extends AppCompatActivity {
 
@@ -73,7 +74,7 @@ public class sanPhamTapLuyen extends AppCompatActivity {
     }
 
     //Cập nhật dữ liệu
-    private void refresh() {
+    public void refresh() {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -90,7 +91,7 @@ public class sanPhamTapLuyen extends AppCompatActivity {
         progressDialog.show();
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String duongdan = "http://192.168.137.147/server/getsanpham.php?page=" + String.valueOf(Page);
+        String duongdan = server.duongdanloaigetsanpham + String.valueOf(Page);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -194,7 +195,7 @@ public class sanPhamTapLuyen extends AppCompatActivity {
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         lvtapluyen = findViewById(R.id.listviewtapluyen);
         mangtapluyen = new ArrayList<>();
-        tapLuyenAdapter = new sanPhamTapLuyenAdapter(getApplicationContext(), mangtapluyen);
+        tapLuyenAdapter = new sanPhamTapLuyenAdapter(sanPhamTapLuyen.this, mangtapluyen);
         lvtapluyen.setAdapter(tapLuyenAdapter);
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         footerview = inflater.inflate(R.layout.progressbar, null);

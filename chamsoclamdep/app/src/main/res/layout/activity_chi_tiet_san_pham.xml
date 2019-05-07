@@ -60,6 +60,14 @@
                             android:layout_marginLeft="20dp"
                             android:src="@drawable/anhmoi" />
 
+                        <Button
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/clickchonhinh"
+                            android:layout_width="150dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/clickzoom"/>
+
                         <LinearLayout
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="20dp"
@@ -75,7 +83,7 @@
 
                             <TextView
                                 android:layout_marginLeft="20dp"
-                                android:textColor="#FFE7080B"
+                                android:textColor="#FF1457"
                                 android:textSize="20dp"
                                 android:id="@+id/txtluotthich"
                                 android:layout_width="50dp"
@@ -83,14 +91,6 @@
 
                         </LinearLayout>
 
-                        <Button
-                            android:layout_marginTop="10dp"
-                            android:id="@+id/clickchonhinh"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:text="Ckick phóng to"
-                            android:background="@drawable/boderbuton1"/>
                     </LinearLayout>
 
                     <LinearLayout

@@ -13,5 +13,10 @@
         android:title="Search"
         android:icon="@drawable/searchview"
         app:showAsAction="always" />
+    <item
+        android:icon="@drawable/logout"
+        android:id="@+id/menuLogout"
+        app:showAsAction="always"
+        android:title="Logout" />
 
 </menu>

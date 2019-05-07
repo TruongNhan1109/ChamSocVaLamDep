@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.edu.tdc.lamdep.Activity.DanhSachSanPham;
+import vn.edu.tdc.lamdep.Activity.ProductLike;
+import vn.edu.tdc.lamdep.Activity.TimKiemSanPham;
 import vn.edu.tdc.lamdep.Activity.chiTietSanPham;
 import vn.edu.tdc.lamdep.Activity.sanPhamActivity;
 import vn.edu.tdc.lamdep.Model.sanPham;
@@ -35,12 +38,12 @@ public class SearchViewAdapter extends RecyclerView.Adapter<SearchViewAdapter.Vi
 
     // Các thuộc tính
     ArrayList<sanPham> mangtimkiem;  // Danh sách
-    Context context;   // Màn hình hiện tại
+    TimKiemSanPham context;   // Màn hình hiện tại
     LayoutInflater inflater;
 
 
     // Phương thức khởi tạo
-    public SearchViewAdapter(Context context, ArrayList<sanPham> mangtimkiem) {
+    public SearchViewAdapter(TimKiemSanPham context, ArrayList<sanPham> mangtimkiem) {
         this.context = context;
         this.mangtimkiem = mangtimkiem;
         inflater = LayoutInflater.from(context);
@@ -93,7 +96,7 @@ public class SearchViewAdapter extends RecyclerView.Adapter<SearchViewAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
 
 
-        private ImageView imgsanphamsearchview, imglike;
+        private ImageView imgsanphamsearchview;
         private TextView tvtensanphamsearchview;
         private TextView tvgiasanphamsearchview;
         private TextView tvmotasearchview;
@@ -107,39 +110,6 @@ public class SearchViewAdapter extends RecyclerView.Adapter<SearchViewAdapter.Vi
             tvgiasanphamsearchview = (TextView) itemView.findViewById(R.id.tvgiasanphamsearchview);
             tvmotasearchview = (TextView) itemView.findViewById(R.id.tvmotasearchview);
             tvluotthich = (TextView) itemView.findViewById(R.id.tvluotthich);
-            imglike = (ImageView) itemView.findViewById(R.id.imglike);
-
-            if (CheckConnect.haveNetworkConnection(context)) {
-                imglike.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        imglike.setImageResource(R.drawable.like);
-                        ApiInterface apiInterface = APISERVISE.getServise();
-                        Call<String> stringCall = apiInterface.updatelike("1", String.valueOf(mangtimkiem.get(getPosition()).getId()));
-                        stringCall.enqueue(new Callback<String>() {
-                            @Override
-                            public void onResponse(Call<String> call, Response<String> response) {
-                                String ketqua = response.body();
-                                if (ketqua.equals("Success")) {
-                                    CheckConnect.showToast_Short(context, "Yêu thích");
-                                    searchViewAdapter.notifyDataSetChanged();
-                                } else {
-                                    CheckConnect.showToast_Short(context, "Lỗi");
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<String> call, Throwable t) {
-
-                            }
-                        });
-                        imglike.setEnabled(false);
-                    }
-                });
-            } else {
-                CheckConnect.showToast_Short(context, "Lỗi mạng");
-                CheckConnect.showToast_Short(context, "Vui lòng kiểm tra kết nối");
-            }
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

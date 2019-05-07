@@ -38,7 +38,7 @@ public class ProductLike extends AppCompatActivity {
         rvsanphamyeuthich = (RecyclerView) findViewById(R.id.rvsanphamyeuthich);
     }
 
-    private void getData() {
+    public void getData() {
         final ProgressDialog progressDialog = new ProgressDialog(ProductLike.this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
@@ -49,7 +49,7 @@ public class ProductLike extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<List<sanPham>> call, Response<List<sanPham>> response) {
                     ArrayList<sanPham> mangsanphamyeuthich = (ArrayList<sanPham>) response.body();
-                    sanPhamYeuThichAdapter = new SanPhamYeuThichAdapter(getApplicationContext(), mangsanphamyeuthich);
+                    sanPhamYeuThichAdapter = new SanPhamYeuThichAdapter(ProductLike.this, mangsanphamyeuthich);
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                     linearLayoutManager.setOrientation(linearLayoutManager.VERTICAL);
                     rvsanphamyeuthich.setLayoutManager(linearLayoutManager);
