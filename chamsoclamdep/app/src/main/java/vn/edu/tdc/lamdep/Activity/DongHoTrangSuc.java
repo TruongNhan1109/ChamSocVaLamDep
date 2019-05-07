@@ -75,7 +75,6 @@ public class DongHoTrangSuc extends AppCompatActivity {
         progressDialog.show();
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String duongdan = "http://192.168.137.147/server/getsanpham3.php?page=" + String.valueOf(Page);
         String duongdan = server.duongdanloaigetsanpham3 + String.valueOf(Page);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
             @Override

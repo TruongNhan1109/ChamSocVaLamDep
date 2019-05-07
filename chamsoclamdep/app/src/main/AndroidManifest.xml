@@ -32,7 +32,6 @@
         <activity android:name=".Activity.DangNhap" />
         <activity android:name=".Activity.ProductLike"></activity>
         <activity android:name=".Activity.DoiMatKhau"></activity>
-        <activity android:name=".Activity.ChiTietDonHang" />
         <activity
             android:name=".Activity.QuanLyDonHang"
             android:label="Quản lý đơn hàng"
@@ -71,8 +70,6 @@
             android:name=".Activity.ThoiTrangNam"
             android:label="Thời trang nam"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.ProductLike" />
-
         <activity
             android:name=".Activity.TimKiemSanPham"
             android:label="Tìm kiếm"
@@ -90,7 +87,9 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-             </intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         
         <activity android:name=".Activity.ChamSoc" />
@@ -155,11 +154,6 @@
             android:label="Bài viết"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
     </activity>
 
     </application>
