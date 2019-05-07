@@ -9,10 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import vn.edu.tdc.lamdep.Activity.ChamSoc;
+import vn.edu.tdc.lamdep.Activity.DanhSachBaiViet;
 import vn.edu.tdc.lamdep.Activity.DuongToc;
 import vn.edu.tdc.lamdep.Activity.KieuToc;
 import vn.edu.tdc.lamdep.Model.TocDep_Model;
@@ -76,31 +80,20 @@ public class TocDep_Adapter extends RecyclerView.Adapter<TocDep_Adapter.ViewHold
 
         // Set từng giá trị lên item
 
-        viewHolder.imgicon.setImageResource(dm.getHinhAnh());
-        viewHolder.tvdanhmuc.setText(dm.getTenDanhMuc());
+        Picasso.with(context).load(dm.getImg()).into(viewHolder.imgicon);
+        viewHolder.tvdanhmuc.setText(dm.getName());
 
 
         // Bắt sự kiện nhấn vào một item
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-
-                switch (dm.getIdDanhMuc()) {
-                    case 1:
-                        Intent intent = new Intent(context, ChamSoc.class);
-                        context.startActivity(intent);
-                        break;
-                    case 2:
-                        Intent intent1 = new Intent(context, DuongToc.class);
-                        context.startActivity(intent1);
-                        break;
-                    case 3:
-                        Intent intent2 = new Intent(context, KieuToc.class);
-                        context.startActivity(intent2);
-                        break;
-                    default:
-                        break;
-                }
+                Intent intent = new Intent(view.getContext(), DanhSachBaiViet.class);
+                intent.putExtra("id", dm.getId());
+                intent.putExtra("name", dm.getName());
+                Toast.makeText(context, dm.getId() + "", Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
             }
         });
 

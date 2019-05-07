@@ -24,18 +24,18 @@ import vn.edu.tdc.lamdep.Activity.KieuToc;
 import vn.edu.tdc.lamdep.Model.danhMucDaDep;
 import vn.edu.tdc.lamdep.R;
 
-public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
+public class DangDepAdapter extends RecyclerView.Adapter<DangDepAdapter.ViewHolder>{
     public DatabaseReference reference;
     private Context context;   // Màn hình hiện tại
     private LayoutInflater inflater;
 
     // Phương thức khởi tạo
-    public DaDepAdapter(Context context, ArrayList<danhMucDaDep> list) {
+    public DangDepAdapter(Context context, ArrayList<danhMucDaDep> list) {
         this.context = context;
         this.listFunction = list;
         inflater = LayoutInflater.from(context);
     }
-    public DaDepAdapter() {
+    public DangDepAdapter() {
         this.context = context;
         this.listFunction = listFunction;
         inflater = LayoutInflater.from(context);
@@ -51,13 +51,12 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
             super(itemView);
             tvdanhmuc = (TextView) itemView.findViewById(R.id.tvdanhmuc);
             imgicon = (ImageView) itemView.findViewById(R.id.imgicon);
-
         }
     }
 
     @NonNull
     @Override
-    public DaDepAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public DangDepAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -68,7 +67,7 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final DaDepAdapter.ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(@NonNull DangDepAdapter.ViewHolder viewHolder, int i) {
         final danhMucDaDep dm = listFunction.get(i);
 
 
@@ -76,6 +75,7 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
 
         Picasso.with(context).load(dm.getImg()).into(viewHolder.imgicon);
         viewHolder.tvdanhmuc.setText(dm.getName());
+
 
         // Bắt sự kiện nhấn vào một item
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +85,7 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
                 Intent intent = new Intent(view.getContext(), DanhSachBaiViet.class);
                 intent.putExtra("id", dm.getId());
                 intent.putExtra("name", dm.getName());
-                Toast.makeText(context, dm.getId() + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, dm.getImg() + "", Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);
             }
         });
@@ -98,11 +98,7 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
     }
 
     public interface OnItemClickedListener {
-        void onItemClick(View view,int idFunction);
+        void onItemClick(int idFunction);
 
-    }
-    private DaDepAdapter.OnItemClickedListener mClickedListener;
-    public void setOnclickListener(DaDepAdapter.OnItemClickedListener onclickListener){
-        mClickedListener = onclickListener;
     }
 }

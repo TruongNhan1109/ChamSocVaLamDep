@@ -45,5 +45,23 @@
     // Man hinh kieu toc
     <string name="btnTocDai2">Tóc dài</string>
     <string name="btnTocNgan">Tóc ngắn</string>
+    
+    //Man hinh them bai viet
+    <string-array name="danhmuc">
+        <item>duongam</item>
+        <item>lamtrang</item>
+        <item>trinmun</item>
+        <item>giamcan</item>
+        <item>tangchieucao</item>
+        <item>tangvongmot</item>
+        <item>biquyet</item>
+        <item>outfit</item>
+        <item>xuhuong</item>
+        <item>danhmahong</item>
+        <item>kelongmay</item>
+        <item>chamsoc</item>
+        <item>duongtoc</item>
+        <item>kieutoc</item>
+    </string-array>
 
 </resources>

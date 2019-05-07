@@ -1,6 +1,7 @@
 package vn.edu.tdc.lamdep.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,9 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import vn.edu.tdc.lamdep.Activity.DanhSachBaiViet;
 import vn.edu.tdc.lamdep.Model.Make_Up_Model;
 import vn.edu.tdc.lamdep.R;
 
@@ -57,24 +62,28 @@ public class MakeUp_Adapter extends RecyclerView.Adapter<MakeUp_Adapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MakeUp_Adapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull MakeUp_Adapter.ViewHolder viewHolder, final int i) {
         final Make_Up_Model dm = listFunction.get(i);
 
 
         // Set từng giá trị lên item
 
-        viewHolder.imgicon.setImageResource(dm.getHinhAnh());
-        viewHolder.tvdanhmuc.setText(dm.getTenDanhMuc());
+        Picasso.with(context).load(dm.getImg()).into(viewHolder.imgicon);
+        viewHolder.tvdanhmuc.setText(dm.getName());
 
 
         // Bắt sự kiện nhấn vào một item
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                onItemClickedListener.onItemClick(dm.getIdDanhMuc());
+                Intent intent = new Intent(view.getContext(), DanhSachBaiViet.class);
+                intent.putExtra("id", dm.getId());
+                intent.putExtra("name", dm.getName());
+                Toast.makeText(context, dm.getId() + "", Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
             }
         });
-
     }
 
     @Override

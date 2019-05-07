@@ -5,40 +5,41 @@ package vn.edu.tdc.lamdep.Model;
  */
 
 public class TocDep_Model {
-
-    private int idDanhMuc;
-    private int hinhAnh;
-    private String tenDanhMuc;
-
-    public int getIdDanhMuc() {
-        return idDanhMuc;
+    public String getName() {
+        return name;
     }
 
-    public void setIdDanhMuc(int idDanhMuc) {
-        this.idDanhMuc = idDanhMuc;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getHinhAnh() {
-        return hinhAnh;
+    public TocDep_Model(String name, String img, String id) {
+        this.name = name;
+        this.img = img;
+        this.id = id;
     }
 
-    public void setHinhAnh(int hinhAnh) {
-        this.hinhAnh = hinhAnh;
+    public TocDep_Model() {
     }
 
-    public String getTenDanhMuc() {
-        return tenDanhMuc;
+    public String getImg() {
+        return img;
     }
 
-    public void setTenDanhMuc(String tenDanhMuc) {
-        this.tenDanhMuc = tenDanhMuc;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public TocDep_Model(int idDanhMuc, int hinhAnh, String tenDanhMuc) {
-        this.idDanhMuc = idDanhMuc;
-        this.hinhAnh = hinhAnh;
-        this.tenDanhMuc = tenDanhMuc;
+    public String getId() {
+        return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private String name;
+    private String img;
+    private String id;
 
 }

@@ -1,50 +1,40 @@
 package vn.edu.tdc.lamdep.Model;
 
 public class Macdep_model {
-
-
-    public int getIdDanhMuc() {
-        return idDanhMuc;
+    public String getName() {
+        return name;
     }
 
-    public void setIdDanhMuc(int idDanhMuc) {
-        this.idDanhMuc = idDanhMuc;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getHinhAnh() {
-        return hinhAnh;
+    public Macdep_model(String name, String img, String id) {
+        this.name = name;
+        this.img = img;
+        this.id = id;
     }
 
-    public void setHinhAnh(int hinhAnh) {
-        this.hinhAnh = hinhAnh;
+    public Macdep_model() {
     }
 
-    public String getTenDanhMuc() {
-        return tenDanhMuc;
+    public String getImg() {
+        return img;
     }
 
-    public void setTenDanhMuc(String tenDanhMuc) {
-        this.tenDanhMuc = tenDanhMuc;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public String getTongHopPhuongPhap() {
-        return tongHopPhuongPhap;
+    public String getId() {
+        return id;
     }
 
-    public void setTongHopPhuongPhap(String tongHopPhuongPhap) {
-        this.tongHopPhuongPhap = tongHopPhuongPhap;
+    public void setId(String id) {
+        this.id = id;
     }
 
-
-    public Macdep_model(int idDanhMuc, int hinhAnh, String tenDanhMuc, String tongHopPhuongPhap) {
-        this.idDanhMuc = idDanhMuc;
-        this.hinhAnh = hinhAnh;
-        this.tenDanhMuc = tenDanhMuc;
-        this.tongHopPhuongPhap = tongHopPhuongPhap;
-    }
-
-    private int idDanhMuc;
-    private int hinhAnh;
-    private String tenDanhMuc;
-    private String tongHopPhuongPhap;
+    private String name;
+    private String img;
+    private String id;
 }

@@ -1,75 +1,105 @@
 package vn.edu.tdc.lamdep.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.xmlpull.v1.XmlPullParser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import vn.edu.tdc.lamdep.Activity.ChamSoc;
+import vn.edu.tdc.lamdep.Activity.DanhSachBaiViet;
+import vn.edu.tdc.lamdep.Activity.DuongToc;
+import vn.edu.tdc.lamdep.Activity.KieuToc;
 import vn.edu.tdc.lamdep.Model.Macdep_model;
+import vn.edu.tdc.lamdep.Model.danhMucDaDep;
 import vn.edu.tdc.lamdep.R;
 
-
-
-public class MacDep_Adapter extends BaseAdapter {
-    // Các thuộc tính
-    private ArrayList<Macdep_model> listFunction;  // Danh sách
+public class MacDep_Adapter extends RecyclerView.Adapter<MacDep_Adapter.ViewHolder>{
+    public DatabaseReference reference;
     private Context context;   // Màn hình hiện tại
     private LayoutInflater inflater;
 
-    public MacDep_Adapter(ArrayList<Macdep_model> listFunction, Context context, LayoutInflater inflater) {
-        this.listFunction = listFunction;
+    // Phương thức khởi tạo
+    public MacDep_Adapter(Context context, ArrayList<Macdep_model> list) {
         this.context = context;
-        this.inflater = inflater;
+        this.listFunction = list;
+        inflater = LayoutInflater.from(context);
+    }
+    public MacDep_Adapter() {
+        this.context = context;
+        this.listFunction = listFunction;
+        inflater = LayoutInflater.from(context);
+
     }
 
+    private ArrayList<Macdep_model> listFunction;
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        public ImageView imgicon;
+        public TextView tvdanhmuc;
+        public ViewHolder(View itemView) {
 
-
-    @Override
-    public int getCount() {
-        return 0;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-    private class ViewHolder{
-        private ImageView imgicon;
-        private TextView tvdanhmuc;
-        private TextView tvtonghop;
-    }
-
-    @Override
-    public View getView(int position, View view, ViewGroup parent) {
-        ViewHolder holder;
-        if (view == null){
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate((XmlPullParser) inflater,null);
-            holder.imgicon = (ImageView) view.findViewById(R.id.imgicon);
-            holder.tvdanhmuc = (TextView) view.findViewById(R.id.tvdanhmuc);
-            holder.tvtonghop = (TextView) view.findViewById(R.id.tvtonghop);
-
-            view.setTag(holder);
-        }else {
-            holder = (ViewHolder) view.getTag();
-
+            super(itemView);
+            tvdanhmuc = (TextView) itemView.findViewById(R.id.tvdanhmuc);
+            imgicon = (ImageView) itemView.findViewById(R.id.imgicon);
         }
-        Macdep_model macdep = listFunction.get(position);
-        holder.tvdanhmuc.setText(macdep.getTenDanhMuc());
-        holder.tvtonghop.setText(macdep.getTongHopPhuongPhap());
-        return view;
+    }
+
+    @NonNull
+    @Override
+    public MacDep_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        Context context = viewGroup.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        View contactView = inflater.inflate(R.layout.list_item_dadep, viewGroup, false);
+
+        ViewHolder viewHolder = new ViewHolder(contactView);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MacDep_Adapter.ViewHolder viewHolder, int i) {
+        final Macdep_model dm = listFunction.get(i);
+
+
+        // Set từng giá trị lên item
+
+        Picasso.with(context).load(dm.getImg()).into(viewHolder.imgicon);
+        viewHolder.tvdanhmuc.setText(dm.getName());
+
+
+        // Bắt sự kiện nhấn vào một item
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DanhSachBaiViet.class);
+                intent.putExtra("id", dm.getId());
+                intent.putExtra("name", dm.getName());
+                Toast.makeText(context, dm.getId() + "", Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
+            }
+        });
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return listFunction.size();
+    }
+
+    public interface OnItemClickedListener {
+        void onItemClick(int idFunction);
+
     }
 }

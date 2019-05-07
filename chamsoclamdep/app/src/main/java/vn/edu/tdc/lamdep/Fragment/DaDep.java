@@ -9,6 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -18,14 +26,15 @@ import vn.edu.tdc.lamdep.R;
 
 
 public class DaDep extends Fragment {
+    private DatabaseReference reference;
+    private RecyclerView recyclerView;
+    private ArrayList<danhMucDaDep> list;
     private DaDepAdapter daDepAdapter;
-    private RecyclerView rvdanhsach;
-    private ArrayList<danhMucDaDep> dsDaDep;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         getActivity().setTitle("Da đẹp");
+
 
     }
 
@@ -33,25 +42,33 @@ public class DaDep extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.dadep_layout, container, false);
-        rvdanhsach = (RecyclerView) rootView.findViewById(R.id.rvdanhsach);
-        dsDaDep = new ArrayList<>();
-        daDepAdapter  = new DaDepAdapter(getActivity(),dsDaDep);
-        rvdanhsach.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        rvdanhsach.setAdapter(daDepAdapter);
-        importDataDaDep();
+
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.rvDsDaDep);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+        list = new ArrayList<>();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        reference = database.getReference().child("dadep");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
+                {
+                    danhMucDaDep d = dataSnapshot1.getValue(danhMucDaDep.class);
+                    list.add(d);
+                    daDepAdapter = new DaDepAdapter(getActivity(),list);
+                }
+                recyclerView.setAdapter(daDepAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(),"Đã xảy ra lỗi", Toast.LENGTH_LONG).show();
+            }
+        });
         return rootView;
     }
-    public void importDataDaDep(){
-        dsDaDep.add(new danhMucDaDep(1,R.drawable.imagedadep,"Trị Mụn"));
-        dsDaDep.add(new danhMucDaDep(2,R.drawable.icondadep,"Dưỡng ẩm"));
-        dsDaDep.add(new danhMucDaDep(3,R.drawable.icondangdep,"Làm trắng"));
-        dsDaDep.add(new danhMucDaDep(1,R.drawable.iconsanpham,"Trị Mụn"));
-        dsDaDep.add(new danhMucDaDep(2,R.drawable.icondadep,"Dưỡng ẩm"));
-        dsDaDep.add(new danhMucDaDep(3,R.drawable.icondangdep,"Làm trắng"));
-        daDepAdapter.notifyDataSetChanged();
 
-    }
 
-    private void setControl(){
-    }
 }

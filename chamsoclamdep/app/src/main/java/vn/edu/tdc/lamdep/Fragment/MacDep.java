@@ -4,24 +4,35 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
+import vn.edu.tdc.lamdep.Adapter.DaDepAdapter;
+import vn.edu.tdc.lamdep.Adapter.MacDep_Adapter;
+import vn.edu.tdc.lamdep.Model.danhMucDaDep;
 import vn.edu.tdc.lamdep.R;
 import vn.edu.tdc.lamdep.Model.Macdep_model;
 
 
 public class MacDep extends Fragment {
-    // Các thuộc tính
-//    private ArrayList<Macdep_model> arrayListMacdep;
-//    private MacDep_Adapter macdepAdapter;
-
-    String[] arrayDSMacDep = {"Outfit thời trang", "Bí quyết mặc đẹp", "Xu hướng thời trang"};
-    ArrayAdapter adapter;
-    ListView listView;
+    private DatabaseReference reference;
+    private RecyclerView recyclerView;
+    private ArrayList<Macdep_model> list;
+    private MacDep_Adapter macDep_adapter;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -33,15 +44,32 @@ public class MacDep extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        arrayListMacdep = new ArrayList<>();
-//
-//        macdepAdapter = new MacDep_Adapter(getActivity(), R.layout.list_item_macdep, arrayListMacdep);
-//        setListAdapter();
-        View view = inflater.inflate(R.layout.macdep_layout, container, false);
-        listView = (ListView)  view.findViewById(R.id.listviewmacdep);
-        adapter =  new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1, arrayDSMacDep);
-        listView.setAdapter(adapter);
+        View rootView =  inflater.inflate(R.layout.macdep_layout, container, false);
 
-        return  view;
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.rvDsMacDep);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+        list = new ArrayList<>();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        reference = database.getReference().child("macdep");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
+                {
+                    Macdep_model d = dataSnapshot1.getValue(Macdep_model.class);
+                    list.add(d);
+                    macDep_adapter = new MacDep_Adapter(getActivity(),list);
+                }
+                recyclerView.setAdapter(macDep_adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(),"Đã xảy ra lỗi", Toast.LENGTH_LONG).show();
+            }
+        });
+        return rootView;
     }
 }
