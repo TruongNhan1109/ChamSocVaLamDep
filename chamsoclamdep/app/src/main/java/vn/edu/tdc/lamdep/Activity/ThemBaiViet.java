@@ -47,6 +47,7 @@ import java.util.UUID;
 
 import vn.edu.tdc.lamdep.Adapter.DaDepAdapter;
 import vn.edu.tdc.lamdep.Adapter.DanhSachBaiVietAdapter;
+import vn.edu.tdc.lamdep.Adapter.ListBaiVietAdapter;
 import vn.edu.tdc.lamdep.Model.DanhSachBaiViet_Model;
 import vn.edu.tdc.lamdep.Model.SpinnerData;
 import vn.edu.tdc.lamdep.Model.danhMucDaDep;
@@ -109,6 +110,7 @@ public class ThemBaiViet extends AppCompatActivity {
         btnthembaiviet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 uploadAnh();
             }
         });
@@ -185,6 +187,8 @@ public class ThemBaiViet extends AppCompatActivity {
                             DanhSachBaiViet_Model list = new DanhSachBaiViet_Model(chuanbi,danhmuc,taskSnapshot.getStorage().getDownloadUrl().toString(),motabaiviet,tenbaiviet,thuchien);
                             reference.child(key).setValue(list);
                             Toast.makeText(ThemBaiViet.this,"Uploaded",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), listBaiViet.class);
+                            startActivity(intent);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

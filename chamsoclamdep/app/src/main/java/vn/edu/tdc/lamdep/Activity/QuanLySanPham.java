@@ -70,6 +70,14 @@ public class QuanLySanPham extends AppCompatActivity {
                             CheckConnect.showToast_Short(getApplicationContext(), "Bạn kiểm tra lại kết nối!");
                         }
                         break;
+                    case 3:
+                        if (CheckConnect.haveNetworkConnection(getApplicationContext())) {
+                            intent = new Intent(getApplicationContext(), listBaiViet.class);
+                            startActivity(intent);
+                        } else {
+                            CheckConnect.showToast_Short(getApplicationContext(), "Bạn kiểm tra lại kết nối!");
+                        }
+                        break;
                 }
             }
         });

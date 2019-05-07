@@ -91,16 +91,6 @@
             </RadioGroup>
 
             <Button
-                android:id="@+id/btndoimatkhau"
-                android:textColor="@android:color/holo_red_light"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="5dp"
-                android:text="Quên mật khẩu?" />
-
-
-            <Button
                 android:id="@+id/btnDangnhap"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

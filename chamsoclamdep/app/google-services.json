@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1042332848113-t6972divfp86u9q61r38fpdo2egspk4n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.edu.tdc.lamdep",
+            "certificate_hash": "1fc1bea75917c04636ffbb5233963c67219937d3"
+          }
+        },
+        {
           "client_id": "1042332848113-odt8cd8qjm6tngurm3dfdv149rlelpam.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

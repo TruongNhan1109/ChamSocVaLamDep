@@ -73,6 +73,7 @@ public interface ApiInterface {
     Call<String> UpdateImages(@Field("id") int id,
                               @Field("hinhanhsanpham") String hinhanhsanpham);
 
+    //DD
     @FormUrlEncoded
     @POST("updatepass.php")
     Call<String> UpdatePassword(@Field("email") String email,
