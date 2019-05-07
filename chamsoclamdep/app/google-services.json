@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "612328418236",
+    "firebase_url": "https://chamsoclamdep-bc1fe.firebaseio.com",
+    "project_id": "chamsoclamdep-bc1fe",
+    "storage_bucket": "chamsoclamdep-bc1fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612328418236:android:ce6d9e25a3adcce5",
+        "android_client_info": {
+          "package_name": "vn.edu.tdc.lamdep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612328418236-r700c2n0j5sbsecoii1vmrcvu49raibl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.edu.tdc.lamdep",
+            "certificate_hash": "2d03ab74785d4e2c47e276072668a9c16522d6d8"
+          }
+        },
+        {
+          "client_id": "612328418236-n2ul67frp8b72jallq47j9g3pv2o823t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfF125H7nbuRB1BlFPCm-cziUmgmceuvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612328418236-n2ul67frp8b72jallq47j9g3pv2o823t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

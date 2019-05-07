@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:background="#F5A9A9"
         android:baselineAligned="false">
         <LinearLayout
             android:layout_marginStart="10dp"
@@ -25,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tổng hợp"
-                android:textColor="#FF72B7C9"
+                android:textColor="#DF0101"
                 android:textSize="25dp" />
 
         </LinearLayout>

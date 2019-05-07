@@ -11,59 +11,46 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import vn.edu.tdc.lamdep.Model.ChamSoc_Model;
+import vn.edu.tdc.lamdep.Model.KeMat_Model;
 import vn.edu.tdc.lamdep.R;
 
 /**
- * Created by USER on 10/04/2019.
+ * Created by USER on 24/04/2019.
  */
 
-public class ChamSoc_Adapter extends RecyclerView.Adapter<ChamSoc_Adapter.ViewHolder>{
+public class KeMat_Adapter extends RecyclerView.Adapter<KeMat_Adapter.ViewHolder> {
 
     // Màn hình hiện tại
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<ChamSoc_Model> listFunction;
+    private ArrayList<KeMat_Model> listFunction;
 
     // Phương thức khởi tạo
-    public ChamSoc_Adapter(Context context, ArrayList<ChamSoc_Model> list) {
+    public KeMat_Adapter(Context context, ArrayList<KeMat_Model> list) {
         this.context = context;
         this.listFunction = list;
         inflater = LayoutInflater.from(context);
     }
-    public ChamSoc_Adapter() {
+    public KeMat_Adapter() {
         this.context = context;
         this.listFunction = listFunction;
         inflater = LayoutInflater.from(context);
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView imgicon;
-        public TextView tvdanhmuc;
-        public ViewHolder(View itemView) {
-
-            super(itemView);
-            tvdanhmuc = (TextView) itemView.findViewById(R.id.txtChamSoc1);
-            imgicon = (ImageView) itemView.findViewById(R.id.imgChamSoc1);
-        }
-    }
-
     @NonNull
     @Override
-    public ChamSoc_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public KeMat_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
         View contactView = inflater.inflate(R.layout.list_item_chamsoc, viewGroup, false);
-
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChamSoc_Adapter.ViewHolder viewHolder, int i) {
-        final ChamSoc_Model dm = listFunction.get(i);
+    public void onBindViewHolder(@NonNull KeMat_Adapter.ViewHolder viewHolder, int i) {
+        final KeMat_Model dm = listFunction.get(i);
 
         // Set từng giá trị lên item
 
@@ -78,12 +65,23 @@ public class ChamSoc_Adapter extends RecyclerView.Adapter<ChamSoc_Adapter.ViewHo
                 onItemClickedListener.onItemClick(dm.getId());
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
-        return listFunction.size();
+        return 0;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public ImageView imgicon;
+        public TextView tvdanhmuc;
+        public ViewHolder(View itemView) {
+
+            super(itemView);
+            tvdanhmuc = (TextView) itemView.findViewById(R.id.txtChamSoc1);
+            imgicon = (ImageView) itemView.findViewById(R.id.imgChamSoc1);
+        }
     }
 
     public interface OnItemClickedListener {
@@ -92,12 +90,11 @@ public class ChamSoc_Adapter extends RecyclerView.Adapter<ChamSoc_Adapter.ViewHo
     }
 
     // Khai báo một biến interface
-    private ChamSoc_Adapter.OnItemClickedListener onItemClickedListener;
+    private KeMat_Adapter.OnItemClickedListener onItemClickedListener;
 
     // Tạo setter cho biến interface ta vừa tạo
-    public void setOnItemClickedListener(ChamSoc_Adapter.OnItemClickedListener onItemClickedListener) {
+    public void setOnItemClickedListener(KeMat_Adapter.OnItemClickedListener onItemClickedListener) {
 
         this.onItemClickedListener = onItemClickedListener;
     }
-
 }

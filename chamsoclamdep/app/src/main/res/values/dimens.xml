@@ -7,4 +7,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="layout_margin">10dp</dimen>
     <dimen name="layout_padding">7dp</dimen>
+    <dimen name="logo_w_h">100dp</dimen>
 </resources>

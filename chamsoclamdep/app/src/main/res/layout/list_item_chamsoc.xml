@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/layout_margin"
                 android:text="Chăm sóc tóc trong mùa du lịch"
-                android:textColor="#ffffff" />
+                android:textColor="#0040FF" />
 
             <Button
                 android:id="@+id/btnSave"

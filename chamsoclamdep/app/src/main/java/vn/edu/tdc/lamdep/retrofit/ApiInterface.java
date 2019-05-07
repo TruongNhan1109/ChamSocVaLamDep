@@ -8,9 +8,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import vn.edu.tdc.lamdep.Activity.TimKiemSanPham;
 import vn.edu.tdc.lamdep.Model.SanPhamBanChay;
-import vn.edu.tdc.lamdep.Model.Timkiem;
 import vn.edu.tdc.lamdep.Model.sanPham;
 
 /**
@@ -18,6 +16,9 @@ import vn.edu.tdc.lamdep.Model.sanPham;
  */
 
 public interface ApiInterface {
+    @GET("getdanhmucbaiviet.php")
+    Call<List<vn.edu.tdc.lamdep.Fragment.TocDep>> GetDanhMucBaiViet();
+
     @GET("sanphammoinhat.php")
     Call<List<sanPham>> GetDataSanPhamMoiNhat();
 

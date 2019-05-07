@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,8 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import vn.edu.tdc.lamdep.Activity.DangNhap;
-import vn.edu.tdc.lamdep.Activity.sanPhamActivity;
 import vn.edu.tdc.lamdep.Fragment.DaDep;
 import vn.edu.tdc.lamdep.Fragment.DangDep;
 import vn.edu.tdc.lamdep.Fragment.Home;
@@ -162,7 +159,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_dangnhap:
-                intent = new Intent(this, DangNhap.class);
+                intent = new Intent(this, DangKy.class);
                 startActivity(intent);
                 break;
         }

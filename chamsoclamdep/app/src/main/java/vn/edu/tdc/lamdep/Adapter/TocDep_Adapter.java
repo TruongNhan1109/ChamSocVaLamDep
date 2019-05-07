@@ -18,15 +18,13 @@ import vn.edu.tdc.lamdep.Activity.KieuToc;
 import vn.edu.tdc.lamdep.Model.TocDep_Model;
 import vn.edu.tdc.lamdep.R;
 
-/**
- * Created by USER on 10/04/2019.
- */
-
 public class TocDep_Adapter extends RecyclerView.Adapter<TocDep_Adapter.ViewHolder> {
 
-    private static Context context;   // Màn hình hiện tại
+    // Màn hình hiện tại
+    private Context context;
     private LayoutInflater inflater;
     private ArrayList<TocDep_Model> listFunction;
+
 
     // Phương thức khởi tạo
     public TocDep_Adapter(Context context, ArrayList<TocDep_Model> list) {
@@ -39,52 +37,33 @@ public class TocDep_Adapter extends RecyclerView.Adapter<TocDep_Adapter.ViewHold
         this.context = context;
         this.listFunction = listFunction;
         inflater = LayoutInflater.from(context);
-
-    }
-
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imgicon;
-        public TextView tvdanhmuc;
-
-        public ViewHolder(View itemView) {
-
-            super(itemView);
-            tvdanhmuc = (TextView) itemView.findViewById(R.id.txtTocDep);
-            imgicon = (ImageView) itemView.findViewById(R.id.imgTocDep);
-
-
-        }
     }
 
     @NonNull
     @Override
-    public TocDep_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
         View contactView = inflater.inflate(R.layout.list_item_tocdep, viewGroup, false);
-
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TocDep_Adapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         final TocDep_Model dm = listFunction.get(i);
-
 
         // Set từng giá trị lên item
 
-        viewHolder.imgicon.setImageResource(dm.getHinhAnh());
-        viewHolder.tvdanhmuc.setText(dm.getTenDanhMuc());
+        viewHolder.imgtocdep.setImageResource(dm.getHinhAnh());
+        viewHolder.txttocdep.setText(dm.getTenDanhMuc());
 
 
         // Bắt sự kiện nhấn vào một item
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 switch (dm.getIdDanhMuc()) {
                     case 1:
                         Intent intent = new Intent(context, ChamSoc.class);
@@ -106,10 +85,23 @@ public class TocDep_Adapter extends RecyclerView.Adapter<TocDep_Adapter.ViewHold
 
     }
 
-
     @Override
     public int getItemCount() {
         return listFunction.size();
+    }
+
+    // Tạo ra một view holder
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private ImageView imgtocdep;
+        private TextView txttocdep;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            imgtocdep = (ImageView) itemView.findViewById(R.id.imgTocDep);
+            txttocdep = (TextView) itemView.findViewById(R.id.txtTocDep);
+        }
     }
 
     public interface OnItemClickedListener {
@@ -126,3 +118,5 @@ public class TocDep_Adapter extends RecyclerView.Adapter<TocDep_Adapter.ViewHold
         this.onItemClickedListener = onItemClickedListener;
     }
 }
+
+

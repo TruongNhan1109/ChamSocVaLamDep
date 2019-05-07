@@ -42,8 +42,7 @@
 Vui lòng thử lại"
         android:textColor="#FFFA0055"
         android:textSize="27dp"
-        android:visibility="gone"
-         />
+        android:visibility="gone" />
 
 
 </RelativeLayout>

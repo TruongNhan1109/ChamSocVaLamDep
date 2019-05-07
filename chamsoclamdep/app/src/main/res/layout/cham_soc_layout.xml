@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/jshine"
     android:orientation="vertical">
 
 
@@ -24,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
+
         android:orientation="vertical">
 
         <LinearLayout
@@ -55,14 +57,14 @@
             <Button
                 android:id="@+id/btnAll"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@drawable/body_button"
                 android:text="@string/btnAll" />
 
             <Button
                 android:id="@+id/btnBiKip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="@dimen/layout_margin"
                 android:background="@drawable/body_button"
                 android:text="@string/btnBiKip" />
@@ -79,14 +81,14 @@
             <Button
                 android:id="@+id/btnTocDai"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@drawable/body_button"
                 android:text="@string/btnTocDai" />
 
             <Button
                 android:id="@+id/btnTocNhuom"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginLeft="@dimen/layout_margin"
                 android:background="@drawable/body_button"
                 android:text="@string/btnTocNhuom" />
@@ -102,14 +104,14 @@
             <Button
                 android:id="@+id/btnTocUon"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@drawable/body_button"
                 android:text="@string/btnTocUon" />
 
             <Button
                 android:id="@+id/btnTocNoi"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginLeft="@dimen/layout_margin"
                 android:background="@drawable/body_button"
                 android:text="@string/btnTocNoi" />
@@ -117,7 +119,7 @@
             <Button
                 android:id="@+id/btnTocXoan"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginLeft="@dimen/layout_margin"
                 android:background="@drawable/body_button"
                 android:text="@string/btnTocXoan" />
@@ -129,7 +131,8 @@
         android:id="@+id/recycle_view_ChamSoc1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_weight="4"
+        android:layout_margin="@dimen/layout_margin">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -142,7 +145,7 @@
         <Button
             android:id="@+id/btnSPLQ"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@drawable/button_splq"
             android:text="Sản phẩm liên quan" />
     </LinearLayout>

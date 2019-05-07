@@ -11,47 +11,35 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import vn.edu.tdc.lamdep.Model.ChamSoc_Model;
+import vn.edu.tdc.lamdep.Model.KeLongMay_Model;
 import vn.edu.tdc.lamdep.R;
 
 /**
- * Created by USER on 10/04/2019.
+ * Created by USER on 20/04/2019.
  */
 
-public class ChamSoc_Adapter extends RecyclerView.Adapter<ChamSoc_Adapter.ViewHolder>{
+public class KeLongMay_Adapter extends RecyclerView.Adapter<KeLongMay_Adapter.ViewHolder> {
 
     // Màn hình hiện tại
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<ChamSoc_Model> listFunction;
+    private ArrayList<KeLongMay_Model> listFunction;
 
     // Phương thức khởi tạo
-    public ChamSoc_Adapter(Context context, ArrayList<ChamSoc_Model> list) {
+    public KeLongMay_Adapter(Context context, ArrayList<KeLongMay_Model> list) {
         this.context = context;
         this.listFunction = list;
         inflater = LayoutInflater.from(context);
     }
-    public ChamSoc_Adapter() {
+    public KeLongMay_Adapter() {
         this.context = context;
         this.listFunction = listFunction;
         inflater = LayoutInflater.from(context);
     }
 
-
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView imgicon;
-        public TextView tvdanhmuc;
-        public ViewHolder(View itemView) {
-
-            super(itemView);
-            tvdanhmuc = (TextView) itemView.findViewById(R.id.txtChamSoc1);
-            imgicon = (ImageView) itemView.findViewById(R.id.imgChamSoc1);
-        }
-    }
-
     @NonNull
     @Override
-    public ChamSoc_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public KeLongMay_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -62,8 +50,8 @@ public class ChamSoc_Adapter extends RecyclerView.Adapter<ChamSoc_Adapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChamSoc_Adapter.ViewHolder viewHolder, int i) {
-        final ChamSoc_Model dm = listFunction.get(i);
+    public void onBindViewHolder(@NonNull KeLongMay_Adapter.ViewHolder viewHolder, int i) {
+        final KeLongMay_Model dm = listFunction.get(i);
 
         // Set từng giá trị lên item
 
@@ -86,18 +74,29 @@ public class ChamSoc_Adapter extends RecyclerView.Adapter<ChamSoc_Adapter.ViewHo
         return listFunction.size();
     }
 
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public ImageView imgicon;
+        public TextView tvdanhmuc;
+        public ViewHolder(View itemView) {
+
+            super(itemView);
+            tvdanhmuc = (TextView) itemView.findViewById(R.id.txtChamSoc1);
+            imgicon = (ImageView) itemView.findViewById(R.id.imgChamSoc1);
+        }
+    }
+
     public interface OnItemClickedListener {
         void onItemClick(int idFunction);
 
     }
 
     // Khai báo một biến interface
-    private ChamSoc_Adapter.OnItemClickedListener onItemClickedListener;
+    private KeLongMay_Adapter.OnItemClickedListener onItemClickedListener;
 
     // Tạo setter cho biến interface ta vừa tạo
-    public void setOnItemClickedListener(ChamSoc_Adapter.OnItemClickedListener onItemClickedListener) {
+    public void setOnItemClickedListener(KeLongMay_Adapter.OnItemClickedListener onItemClickedListener) {
 
         this.onItemClickedListener = onItemClickedListener;
     }
-
 }

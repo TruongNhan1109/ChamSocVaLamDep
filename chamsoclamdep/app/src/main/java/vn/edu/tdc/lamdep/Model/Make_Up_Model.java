@@ -5,39 +5,41 @@ package vn.edu.tdc.lamdep.Model;
  */
 
 public class Make_Up_Model {
+private String name;
 
-
-    public Make_Up_Model(int idDanhMuc, int hinhAnh, String tenDanhMuc) {
-        this.idDanhMuc = idDanhMuc;
-        this.hinhAnh = hinhAnh;
-        this.tenDanhMuc = tenDanhMuc;
+    public String getName() {
+        return name;
     }
 
-    private int idDanhMuc;
-    private int hinhAnh;
-    private String tenDanhMuc;
-
-    public int getIdDanhMuc() {
-        return idDanhMuc;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setIdDanhMuc(int idDanhMuc) {
-        this.idDanhMuc = idDanhMuc;
+    public Make_Up_Model() {
     }
 
-    public int getHinhAnh() {
-        return hinhAnh;
+    public Make_Up_Model(String img, String name, int iddanhmuc) {
+        this.name = name;
+        this.img = img;
+        this.iddanhmuc = iddanhmuc;
     }
 
-    public void setHinhAnh(int hinhAnh) {
-        this.hinhAnh = hinhAnh;
+    public String getImg() {
+        return img;
     }
 
-    public String getTenDanhMuc() {
-        return tenDanhMuc;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public void setTenDanhMuc(String tenDanhMuc) {
-        this.tenDanhMuc = tenDanhMuc;
+    public int getIddanhmuc() {
+        return iddanhmuc;
     }
+
+    public void setIddanhmuc(int iddanhmuc) {
+        this.iddanhmuc = iddanhmuc;
+    }
+
+    private String img;
+    private int iddanhmuc;
 }

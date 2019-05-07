@@ -9,11 +9,15 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    // Menu item
     //Menu man hinh dang ky
     <string name="menuItemCancel">Quay về</string>
     <string name="menuItemSearch">Tìm kiếm</string>
     <string name="menuItemSave">Lưu</string>
+    <string name="lblemail">Email</string>
+    <string name="lbl_hint_password">Password</string>
+    <string name="action_sign_in_short">Đăng ký</string>
+    <string name="btn_forgot_password">Quên mật khẩu</string>
+    <string name="btn_link_to_login">Đã đăng ký, đăng nhập ngay!</string>
 
     // Man hinh cham soc toc
     <string name="btnAll">Tất cả</string>
