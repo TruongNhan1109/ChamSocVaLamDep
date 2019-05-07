@@ -22,6 +22,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.edu.tdc.lamdep.Activity.ProductLike;
 import vn.edu.tdc.lamdep.Activity.chiTietSanPham;
 import vn.edu.tdc.lamdep.Activity.sanPhamActivity;
 import vn.edu.tdc.lamdep.Model.sanPham;
@@ -36,12 +37,12 @@ public class SanPhamYeuThichAdapter extends RecyclerView.Adapter<SanPhamYeuThich
 
     // Các thuộc tính
     ArrayList<sanPham> mangyeuthich;  // Danh sách
-    Context context;   // Màn hình hiện tại
+    ProductLike context;   // Màn hình hiện tại
     LayoutInflater inflater;
 
 
     // Phương thức khởi tạo
-    public SanPhamYeuThichAdapter(Context context, ArrayList<sanPham> mangyeuthich) {
+    public SanPhamYeuThichAdapter(ProductLike context, ArrayList<sanPham> mangyeuthich) {
         this.context = context;
         this.mangyeuthich = mangyeuthich;
         inflater = LayoutInflater.from(context);
@@ -123,6 +124,7 @@ public class SanPhamYeuThichAdapter extends RecyclerView.Adapter<SanPhamYeuThich
                                 String ketqua = response.body();
                                 if (ketqua.equals("Success")) {
                                     CheckConnect.showToast_Short(context, "Yêu thích");
+                                    context.getData();
                                     sanPhamYeuThichAdapter.notifyDataSetChanged();
                                 } else {
                                     CheckConnect.showToast_Short(context, "Lỗi");

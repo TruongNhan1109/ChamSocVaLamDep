@@ -3,9 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/add"
-        android:orderInCategory="100"
         android:title="Thêm"
-        android:icon="@drawable/ic_add_box_black_24dp"
+        android:icon="@drawable/addproduct"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/menuseachview"
+        android:title="Search"
+        android:icon="@drawable/searchview"
+        app:showAsAction="always" />
+    <item
+        android:icon="@drawable/people"
+        android:id="@+id/menuLogout"
+        app:showAsAction="always"
+        android:title="Logout" />
 
 </menu>

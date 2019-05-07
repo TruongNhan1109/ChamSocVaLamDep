@@ -73,13 +73,6 @@
                         android:textSize="15dp" />
 
                 </LinearLayout>
-                <ImageView
-                    android:id="@+id/imglike"
-                    android:layout_gravity="center|right"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/loveoff"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
         </FrameLayout>

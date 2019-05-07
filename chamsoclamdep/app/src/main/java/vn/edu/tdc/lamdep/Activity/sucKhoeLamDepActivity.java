@@ -36,6 +36,7 @@ import vn.edu.tdc.lamdep.Adapter.sucKhoeLamDepAdapter;
 import vn.edu.tdc.lamdep.Model.sanPham;
 import vn.edu.tdc.lamdep.R;
 import vn.edu.tdc.lamdep.unitl.CheckConnect;
+import vn.edu.tdc.lamdep.unitl.server;
 
 public class sucKhoeLamDepActivity extends AppCompatActivity {
 
@@ -87,7 +88,7 @@ public class sucKhoeLamDepActivity extends AppCompatActivity {
         progressDialog.show();
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String duongdan = "http://192.168.0.29/server/getsanpham2.php?page=" + String.valueOf(Page);
+        String duongdan = server.duongdanloaigetsanpham2 + String.valueOf(Page);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, duongdan, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

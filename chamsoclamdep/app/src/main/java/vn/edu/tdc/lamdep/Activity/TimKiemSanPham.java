@@ -14,6 +14,16 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +37,10 @@ import vn.edu.tdc.lamdep.R;
 import vn.edu.tdc.lamdep.retrofit.APISERVISE;
 import vn.edu.tdc.lamdep.retrofit.ApiInterface;
 import vn.edu.tdc.lamdep.unitl.CheckConnect;
+import vn.edu.tdc.lamdep.unitl.server;
+
+import static vn.edu.tdc.lamdep.Activity.DanhSachSanPham.mangsanpham;
+import static vn.edu.tdc.lamdep.Activity.DanhSachSanPham.sanPhamAdapter;
 
 public class TimKiemSanPham extends AppCompatActivity {
     public static RecyclerView rvsearchview;
@@ -101,8 +115,7 @@ public class TimKiemSanPham extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    private void SearchTenSanPham(String query) {
+    public void SearchTenSanPham(String query) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
@@ -114,7 +127,7 @@ public class TimKiemSanPham extends AppCompatActivity {
                 public void onResponse(Call<List<sanPham>> call, Response<List<sanPham>> response) {
                     ArrayList<sanPham> mangsanpham = (ArrayList<sanPham>) response.body();
                     if (mangsanpham.size() > 0) {
-                        searchViewAdapter = new SearchViewAdapter(getApplicationContext(), mangsanpham);
+                        searchViewAdapter = new SearchViewAdapter(TimKiemSanPham.this,mangsanpham);
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                         rvsearchview.setLayoutManager(linearLayoutManager);
                         rvsearchview.setAdapter(searchViewAdapter);

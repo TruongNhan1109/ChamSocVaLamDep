@@ -1,5 +1,6 @@
 package vn.edu.tdc.lamdep.Activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import vn.edu.tdc.lamdep.Activity.DangNhap;
 import vn.edu.tdc.lamdep.Activity.sanPhamActivity;
@@ -23,12 +39,12 @@ import vn.edu.tdc.lamdep.Fragment.MakeUp;
 import vn.edu.tdc.lamdep.Fragment.TapLuyen;
 import vn.edu.tdc.lamdep.Fragment.TocDep;
 import vn.edu.tdc.lamdep.R;
+import vn.edu.tdc.lamdep.unitl.CheckConnect;
+import vn.edu.tdc.lamdep.unitl.server;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -160,8 +176,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_danhgiaungdung:
                 break;
 
-            case R.id.nav_dangnhap:
-                intent = new Intent(this, DangNhap.class);
+            case R.id.nav_doimatkhau:
+                intent = new Intent(this,DoiMatKhau.class);
                 startActivity(intent);
                 break;
         }
