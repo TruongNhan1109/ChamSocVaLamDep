@@ -17,10 +17,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import vn.edu.tdc.lamdep.Activity.BaiViet;
 import vn.edu.tdc.lamdep.Activity.ChamSoc;
 import vn.edu.tdc.lamdep.Activity.DanhSachBaiViet;
 import vn.edu.tdc.lamdep.Activity.DuongToc;
 import vn.edu.tdc.lamdep.Activity.KieuToc;
+import vn.edu.tdc.lamdep.Activity.listTapLuyen;
 import vn.edu.tdc.lamdep.Model.danhMucDaDep;
 import vn.edu.tdc.lamdep.R;
 
@@ -61,7 +63,7 @@ public class TapLuyenAdapter extends RecyclerView.Adapter<TapLuyenAdapter.ViewHo
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View contactView = inflater.inflate(R.layout.list_item_macdep, viewGroup, false);
+        View contactView = inflater.inflate(R.layout.list_item_dadep, viewGroup, false);
 
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
@@ -78,6 +80,18 @@ public class TapLuyenAdapter extends RecyclerView.Adapter<TapLuyenAdapter.ViewHo
         viewHolder.tvdanhmuc.setText(dm.getName());
 
         // Bắt sự kiện nhấn vào một item
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), listTapLuyen.class);
+                intent.putExtra("idlisttapluyen",dm.getId() );
+                intent.putExtra("imgtapluyen",dm.getImg());
+                intent.putExtra("nametapluyen",dm.getName());
+                Toast.makeText(context, dm.getId() + "", Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,25 +12,279 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvdMenu"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_weight="3">
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
 
-        </android.support.v7.widget.RecyclerView>
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alignmentMode="alignMargins"
+                android:columnCount="4"
+                android:columnOrderPreserved="false"
+                android:padding="14dp"
+                android:rowCount="2">
+                <!--Row 1-->
+                <!--Col 1-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtnhome"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#FFFFFF"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/homechuyen" />
+
+                        <TextView
+                            android:id="@+id/tvHome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Home" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <!--col 2-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtnSanPham"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#FFFFFF"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/sanphamchuyen" />
+
+                        <TextView
+                            android:id="@+id/tvSanPham"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sản phẩm" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <!--col 3-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtnMakeUp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#FFFFFF"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/makeupchuyen" />
+
+                        <TextView
+                            android:id="@+id/tvMakeUp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Make Up" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <!--Col 4-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtnTocDep"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#FFFFFF"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/tocdepchuyen" />
+
+                        <TextView
+                            android:id="@+id/tvTocDep"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tóc đẹp" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <!--Row 2-->
+                <!--Col 1-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtnMacDep"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#FFFFFF"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/macdepchuyen" />
+
+                        <TextView
+                            android:id="@+id/tvMacDep"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mặc đẹp" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <!--Col 2-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtnDaDep"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#FFFFFF"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/dadepchuyen" />
+
+                        <TextView
+                            android:id="@+id/tvDaDep"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Da đẹp" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <!--Col 3-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtnDangDep"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#FFFFFF"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/dangdepchuyen" />
+
+                        <TextView
+                            android:id="@+id/tvDangDep"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dáng đẹp" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <!--Col 4-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtnTapLuyen"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="#FFFFFF"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/tapluyenchuyen" />
+
+                        <TextView
+                            android:id="@+id/tvTapLuyen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tập luyện" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </GridLayout>
+
+        </LinearLayout>
 
         <!-- Nội dung các màn hình -->
         <LinearLayout
             android:layout_width="match_parent"
             android:id="@+id/content_main"
             android:orientation="vertical"
-            android:layout_height="match_parent">
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="3">
         </LinearLayout>
 
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
