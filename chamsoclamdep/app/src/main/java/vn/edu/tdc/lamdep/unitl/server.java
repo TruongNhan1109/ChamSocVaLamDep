@@ -3,7 +3,7 @@ package vn.edu.tdc.lamdep.unitl;
 public class server {
 
 
-    public static String localhost = "192.168.1.165";
+    public static String localhost = "192.168.1.7";
 
     public static String duongdanloaisanpham = "http://" + localhost + "/server/loaisanpham.php";
     public static String duongdanloaigetsanpham = "http://" + localhost + "/server/getsanpham.php?page=";

@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
      * @param username
      * @param password result json
      */
-    public void loginAccount(final String username, final String password) {
+    public void loginAccountUser(final String username, final String password) {
 
         if (checkEditText(edtUserName) && checkEditText(edtPassWord)) {
             pDialog.show();
@@ -238,7 +238,7 @@ public class LoginActivity extends AppCompatActivity {
                     loginAccountAdmin(username, password);
                 }
                 if (rduser.isChecked()) {
-                    loginAccount(username, password);
+                    loginAccountUser(username, password);
                 }
             }
         });

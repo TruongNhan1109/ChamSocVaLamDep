@@ -45,7 +45,7 @@
     // Man hinh kieu toc
     <string name="btnTocDai2">Tóc dài</string>
     <string name="btnTocNgan">Tóc ngắn</string>
-    
+
     //Man hinh them bai viet
     <string-array name="danhmuc">
         <item>duongam</item>
