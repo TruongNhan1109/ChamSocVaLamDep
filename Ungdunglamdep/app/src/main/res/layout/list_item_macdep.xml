@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tvdanhmuc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tổng hợp"
+                android:textColor="#FF72B7C9"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/tvtonghop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Phương pháp"
+                android:textColor="#FFB60B14"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@mipmap/icon_app"
+                android:layout_margin="20dp"/>
+
+
+            <!--<de.hdodenhof.circleimageview.CircleImageView-->
+                <!--android:id="@+id/imgicon"-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_gravity="right"-->
+                <!--android:layout_margin="20dp"-->
+                <!--android:src="" />-->
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

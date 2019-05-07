@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TracNghiemTQ</string>
+    <string name="txt_btnPre">&#60;</string>
+    <string name="txt_btnNext">&#62;</string>
+    <string name="txt_btnKetThuc">Kết Thúc</string>
+    <string name="screen1">Câu Số 1</string>
+    <string name="screen2">Câu Số 2</string>
+    <string name="screen3">Câu Số 3</string>
+    <string name="screen4">Câu Số 4</string>
+    <string name="screen5">Câu Số 5</string>
+    <string name="screenKethuc">Kết Thúc</string>
+    <string name="chkContent_Answer">Câu trả lời của câu hỏi</string>
+    <string name="lblContent_Question">Nội dung câu hỏi</string>
+</resources>

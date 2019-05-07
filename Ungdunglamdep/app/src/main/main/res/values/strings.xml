@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TracNghiemTQ</string>
+    <string name="txt_btnPre">&#60;</string>
+    <string name="txt_btnNext">&#62;</string>
+    <string name="txt_btnKetThuc">KẾT THÚC</string>
+    <string name="screen1">CÂU 1</string>
+    <string name="screen2">CÂU 2</string>
+    <string name="screen3">CÂU 3</string>
+    <string name="screen4">CÂU 4</string>
+    <string name="screen5">CÂU 5</string>
+    <string name="screenKethuc">KẾT QUẢ KIỂM TRA</string>
+    <string name="chkContent_Answer">Trả lời câu hỏi</string>
+    <string name="lblContent_Question">Nội dung câu trả lời</string>
+    <string name="lblContent_Question1">Kiểm tra kết quả</string>
+    <string-array name="Spinner_default">
+        <item> Giá trị 1</item>
+        <item> Giá trị 2</item>
+        <item> Giá trị 3</item>
+        <item> Giá trị 4</item>
+        <item> Giá trị 5</item>
+    </string-array>
+    <string name="Texton">Đúng</string>
+    <string name="Textoff">Sai</string>
+</resources>

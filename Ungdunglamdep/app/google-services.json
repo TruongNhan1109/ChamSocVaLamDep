@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "594977366888",
+    "firebase_url": "https://dangnhap-c7b34.firebaseio.com",
+    "project_id": "dangnhap-c7b34",
+    "storage_bucket": "dangnhap-c7b34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594977366888:android:6ef0ed8050a88da5",
+        "android_client_info": {
+          "package_name": "com.example.administrator.ungdunglamdep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594977366888-1t3rgplkpiei7dguvoe8ijkql68suakr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDppJSR2PNWaOwG70knEB3tzFBipSlczj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594977366888-1t3rgplkpiei7dguvoe8ijkql68suakr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "599904417885",
+    "firebase_url": "https://dangnhap-6c2ff.firebaseio.com",
+    "project_id": "dangnhap-6c2ff",
+    "storage_bucket": "dangnhap-6c2ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599904417885:android:cb1d7125719c1423",
+        "android_client_info": {
+          "package_name": "com.example.administrator.dangnhap1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599904417885-pmgsbflno68mtgugdnl07fuaar9mm6hs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVupr3FsRf0nCFi676B5iDb2fAHPo6mu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599904417885-pmgsbflno68mtgugdnl07fuaar9mm6hs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599904417885:android:e1e909a1784a1602",
+        "android_client_info": {
+          "package_name": "com.example.administrator.ungdunglamdep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599904417885-nt3qq4i7sjs2dc6mguuledk2koie0t46.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.administrator.ungdunglamdep",
+            "certificate_hash": "ffd45d85348768fad38aad110679ff9ca928b0bd"
+          }
+        },
+        {
+          "client_id": "599904417885-pmgsbflno68mtgugdnl07fuaar9mm6hs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVupr3FsRf0nCFi676B5iDb2fAHPo6mu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599904417885-pmgsbflno68mtgugdnl07fuaar9mm6hs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599904417885:android:6ef0ed8050a88da5",
+        "android_client_info": {
+          "package_name": "vn.edu.tdc.lamdep.Activity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599904417885-pmgsbflno68mtgugdnl07fuaar9mm6hs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVupr3FsRf0nCFi676B5iDb2fAHPo6mu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599904417885-pmgsbflno68mtgugdnl07fuaar9mm6hs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

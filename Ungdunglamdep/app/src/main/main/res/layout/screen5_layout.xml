@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    tools:context=".ActivityScreen1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lblQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lblContent_Question" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/edtA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:editable="false"
+            android:text="@string/chkContent_Answer"
+            />
+
+        <Switch
+            android:id="@+id/swtA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/edtA"
+            android:layout_marginLeft="@dimen/marginLeft_Answer"
+            android:layout_toRightOf="@id/edtA"
+            android:textOff="@string/Textoff"
+            android:textOn="@string/Texton">
+
+        </Switch>
+
+        <EditText
+            android:id="@+id/edtB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/edtB"
+            android:layout_below="@id/edtA"
+            android:layout_marginTop="@dimen/marginTop2_Answer"
+            android:text="@string/chkContent_Answer"
+            />
+
+        <Switch
+            android:id="@+id/swtB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/edtB"
+            android:layout_alignLeft="@id/swtA"
+            android:layout_toRightOf="@id/edtB"
+            android:textOff="@string/Textoff"
+            android:textOn="@string/Texton"
+            >
+
+        </Switch>
+
+        <EditText
+            android:id="@+id/edtC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/edtC"
+            android:layout_below="@id/edtB"
+            android:layout_marginTop="@dimen/marginTop2_Answer"
+            android:text="@string/chkContent_Answer"
+            />
+
+        <Switch
+            android:id="@+id/swtC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/edtC"
+            android:layout_alignLeft="@id/swtB"
+            android:layout_toRightOf="@id/edtC"
+            android:textOff="@string/Textoff"
+            android:textOn="@string/Texton">
+
+        </Switch>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btnPre_margin"
+            android:background="@color/colorbtbKetThuc"
+            android:text="@string/txt_btnPre"
+            android:textSize="@dimen/btnTextSize" />
+
+        <Button
+            android:id="@+id/btnKetThuc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btnKetThuc_margin"
+            android:background="@color/colorbtbKetThuc"
+            android:paddingLeft="@dimen/btnKetThuc_paddingLeft"
+            android:paddingRight="@dimen/btnKetThuc_paddingRight"
+            android:text="@string/txt_btnKetThuc"
+            android:textSize="@dimen/btnTextSize" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btnNext_margin"
+            android:background="@color/colorbtbKetThuc"
+            android:text="@string/txt_btnNext"
+            android:textSize="@dimen/btnTextSize" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="appMargin">30dp</dimen>
+    <dimen name="btnPre_margin">15dp</dimen>
+    <dimen name="btnNext_margin">15dp</dimen>
+    <dimen name="btnKetThuc_margin">15dp</dimen>
+    <dimen name="btnTextSize">35sp</dimen>
+    <dimen name="btnKetThuc_paddingLeft">20dp</dimen>
+    <dimen name="btnKetThuc_paddingRight">20dp</dimen>
+    <dimen name="marginTop_Answer">40dp</dimen>
+    <dimen name="marginLeft_Answer">50dp</dimen>
+</resources>

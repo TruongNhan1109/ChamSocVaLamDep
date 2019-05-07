@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".ActivityScreen1">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/lblQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblContent_Question"/>
+
+</LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="4"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <CheckBox
+        android:id="@+id/chkA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/chkContent_Answer"/>
+    <CheckBox
+        android:id="@+id/chkB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/chkA"
+        android:layout_alignBaseline="@+id/chkA"
+        android:layout_marginLeft="@dimen/marginLeft_Answer"
+        android:text="@string/chkContent_Answer"/>
+    <CheckBox
+        android:id="@+id/chkC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkA"
+        android:layout_alignLeft="@+id/chkA"
+        android:layout_marginTop="@dimen/marginTop_Answer"
+        android:text="@string/chkContent_Answer"/>
+    <CheckBox
+        android:id="@+id/chkD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkB"
+        android:layout_alignBaseline="@+id/chkC"
+        android:layout_alignLeft="@+id/chkB"
+        android:text="@string/chkContent_Answer"/>
+
+
+</RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/btnPre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorbtbKetThuc"
+        android:layout_margin="@dimen/btnPre_margin"
+        android:textSize="@dimen/btnTextSize"
+        android:text="@string/txt_btnPre"/>
+    <Button
+        android:id="@+id/btnKetThuc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorbtbKetThuc"
+        android:layout_margin="@dimen/btnKetThuc_margin"
+        android:textSize="@dimen/btnTextSize"
+        android:paddingLeft="@dimen/btnKetThuc_paddingLeft"
+        android:paddingRight="@dimen/btnKetThuc_paddingRight"
+        android:text="@string/txt_btnKetThuc"/>
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorbtbKetThuc"
+        android:textSize="@dimen/btnTextSize"
+        android:layout_margin="@dimen/btnNext_margin"
+        android:text="@string/txt_btnNext"/>
+</LinearLayout>
+</LinearLayout>

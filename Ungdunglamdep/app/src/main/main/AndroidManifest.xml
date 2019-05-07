@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="vn.edu.tdc.tracnghiemtq">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".ActivityScreen1"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityScreen2"
+            android:label="@string/screen2"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ActivityScreen3"
+            android:label="@string/screen3"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ActivityScreen4"
+            android:label="@string/screen4"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ActivityScreen5"
+            android:label="@string/screen5"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".ActivityScreenKetThuc"
+            android:label="@string/screenKethuc"
+            android:screenOrientation="landscape">
+
+        </activity>
+    </application>
+
+</manifest>

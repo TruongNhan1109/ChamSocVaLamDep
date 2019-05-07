@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "64693178813",
+    "firebase_url": "https://dangky-82c50.firebaseio.com",
+    "project_id": "dangky-82c50",
+    "storage_bucket": "dangky-82c50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64693178813:android:1038a0c2629fb553",
+        "android_client_info": {
+          "package_name": "com.example.administrator.dangnhapdangky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64693178813-0il95n0cdvsgncmgm20du8pnruj4pi41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.administrator.dangnhapdangky",
+            "certificate_hash": "ffd45d85348768fad38aad110679ff9ca928b0bd"
+          }
+        },
+        {
+          "client_id": "64693178813-nv3vb5pmg4heoujdlvookggioffuv4er.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmip3BJDPZ3Xc0RW0lkXy4jkl2DaP5K7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64693178813-nv3vb5pmg4heoujdlvookggioffuv4er.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

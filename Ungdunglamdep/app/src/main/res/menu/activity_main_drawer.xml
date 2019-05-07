@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/icon_home_black"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_sanpham"
+            android:icon="@drawable/icon_cart_black"
+            android:title="Sản phẩm" />
+
+
+
+        <item
+            android:id="@+id/nav_dadep"
+            android:icon="@drawable/icon_dadep_black"
+            android:title="Da đẹp" />
+
+        <item
+            android:id="@+id/nav_makeup"
+            android:icon="@drawable/icon_makeup_black"
+            android:title="Make up" />
+
+        <item
+            android:id="@+id/nav_tocdep"
+            android:icon="@drawable/icon_toc_dep"
+            android:title="Tóc đẹp" />
+
+        <item
+            android:id="@+id/nav_macdep"
+            android:icon="@drawable/icon_macdep_black"
+            android:title="Mặc đẹp" />
+
+        <item
+            android:id="@+id/nav_dangdep"
+            android:icon="@drawable/icon_dangdepblack"
+            android:title="Dáng đẹp" />
+
+        <item
+            android:id="@+id/nav_tapluyen"
+            android:icon="@drawable/icon_tap_luyen_black"
+            android:title="Tập luyện" />
+
+    </group>
+
+    <item android:title="Khác">
+        <menu>
+            <item
+                android:id="@+id/nav_lichsu"
+                android:icon="@drawable/icon_lich_su_lam_dep"
+                android:title="Lịch sử làm đẹp" />
+
+            <item
+                android:id="@+id/nav_danhgiaungdung"
+                android:icon="@drawable/icon_danh_gia_ud"
+                android:title="Đánh giá ứng dụng" />
+
+            <item
+                android:id="@+id/nav_dangnhap"
+                android:icon="@drawable/icon_dang_nhap"
+                android:title="Đăng nhập" />
+        </menu>
+    </item>
+
+</menu>

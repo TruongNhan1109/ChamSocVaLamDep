@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff4081</color>
+    <color name="colorPrimaryDark">#ff4081</color>
+    <color name="colorAccent">#673ab7</color>
+    <color name="color_edtUser">#F5F5F5</color>
+    <color name="color_bgUser">#B4BCE6</color>
+    <color name="color_btnSPLQ">#FF9900</color>
+
+    // Man hinh dang nhap
+    <color name="colorDK">#8ABF92</color>
+    <color name="colorDN">#6CAEA9</color>
+    <color name="colorBlue">#0000FF</color>
+    <color name="colorOr">#2FBF59</color>
+    <color name="colorText">#B0D684</color>
+    <color name="colorQTV">#E6E1AE</color>
+    <color name="colorND">#D5C2BE</color>
+</resources>

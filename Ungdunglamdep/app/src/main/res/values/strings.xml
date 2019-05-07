@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Làm đẹp</string>
+    <string name="app_name_DangKy">Đăng ký</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    // Menu item
+    //Menu man hinh dang ky
+    <string name="menuItemCancel">Quay về</string>
+    <string name="menuItemSearch">Tìm kiếm</string>
+    <string name="menuItemSave">Lưu</string>
+
+    // Man hinh cham soc toc
+    <string name="btnAll">Tất cả</string>
+    <string name="btnBiKip">Bí kíp chăm sóc tóc</string>
+    <string name="btnTocDai">Tóc dài óng ả</string>
+    <string name="btnTocNhuom">Tóc nhuộm</string>
+    <string name="btnTocNoi">Tóc nối</string>
+    <string name="btnTocUon">Tóc uốn</string>
+    <string name="btnTocXoan">Tóc xoăn</string>
+    <string name="txtFilter">Lọc bài viết theo các mục sau</string>
+    <string name="btnSPLienQuan">Sản phẩm liên quan</string>
+
+    //Man hinh dang ky
+    <string name="txtUser">Tên đăng nhập</string>
+    <string name="edtUser">Nhập tên tài khoản</string>
+    <string name="txtPass">Mật khẩu</string>
+    <string name="edtPass">Nhập mật khẩu</string>
+    <string name="txtRePass">Nhập lại mật khẩu</string>
+    <string name="edtRePass">Nhập lại mật khẩu</string>
+    <string name="txtPhone">Số điện thoại</string>
+    <string name="edtPhone">Nhập số điện thoại</string>
+    <string name="btnDangKy">Đăng ký</string>
+
+    // Man hinh duong toc
+    <string name="btnBiKipDT">Bí kíp dưỡng tóc</string>
+    <string name="btnDuongTocTN">Dưỡng tóc tại nhà</string>
+    <string name="btnAllDT">Tất cả</string>
+
+    // Man hinh kieu toc
+    <string name="btnTocDai2">Tóc dài</string>
+    <string name="btnTocNgan">Tóc ngắn</string>
+
+    // Man hinh dang nhap
+    <string name="txtTK">Tài khoản: </string>
+    <string name="txtMK">Mật khẩu: </string>
+    <string name="edtTK">Tài khoản của bạn</string>
+    <string name="edtMK">Mật khẩu của bạn</string>
+    <string name="cbxQuanTriVien">Quản trị viên</string>
+    <string name="cbxnguoiDung">Người dùng</string>
+    <string name="text">Do you have an account yet ?</string>
+    <string name="btnDangki">Đăng kí</string>
+    <string name="txtOr">Hoặc</string>
+    <string name="btnDangnhap">Đăng nhập</string>
+    <string name="txtDN_FB">Đăng nhập bằng facebook</string>
+    <string name="facebook_app_id">2398563186841294</string>
+    <string name="fb_login_protocol_scheme">fb2398563186841294</string>
+
+
+</resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.DangNhap">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtTK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/txtTK" />
+
+            <EditText
+                android:id="@+id/edtTK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtTK"
+                android:layout_marginLeft="@dimen/dimenLeftTK"
+                android:layout_toRightOf="@+id/txtTK"
+                android:hint="@string/edtTK" />
+
+            <TextView
+                android:id="@+id/txtMK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtTK"
+                android:layout_alignLeft="@+id/txtTK"
+                android:layout_marginTop="@dimen/dimenTopTK"
+                android:text="@string/txtMK" />
+
+            <EditText
+                android:id="@+id/edtMK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtMK"
+                android:layout_alignLeft="@+id/edtTK"
+                android:password="true"
+                android:hint="@string/edtMK" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/chkQuanTriVien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/cbxQuanTriVien"
+                android:textColor="@color/colorQTV" />
+
+            <RadioButton
+                android:id="@+id/chkNguoidung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/chkQuanTriVien"
+                android:layout_marginLeft="@dimen/dimenLeftTK"
+                android:layout_toRightOf="@+id/chkQuanTriVien"
+                android:text="@string/cbxnguoiDung"
+                android:textColor="@color/colorND" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimenLeftTK"
+                android:text="@string/text"
+                android:textColor="@color/colorText" />
+
+            <Button
+                android:id="@+id/btnDK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimenLeftTK"
+                android:background="@drawable/body_button"
+                android:text="@string/btnDangki" />
+
+            <TextView
+                android:id="@+id/txtOr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtOr"
+                android:textColor="@color/colorOr" />
+
+            <Button
+                android:id="@+id/btnDN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/body_button"
+                android:text="@string/btnDangnhap" />
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimenLeftTK"
+                android:layout_marginBottom="10dp" />
+
+
+            <Button
+                android:id="@+id/btnThoat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thoat"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
