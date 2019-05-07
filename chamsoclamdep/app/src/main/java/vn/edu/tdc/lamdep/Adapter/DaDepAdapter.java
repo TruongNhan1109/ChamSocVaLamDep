@@ -9,15 +9,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import vn.edu.tdc.lamdep.Activity.TriMun;
+import vn.edu.tdc.lamdep.Activity.ChamSoc;
+import vn.edu.tdc.lamdep.Activity.DanhSachBaiViet;
+import vn.edu.tdc.lamdep.Activity.DuongToc;
+import vn.edu.tdc.lamdep.Activity.KieuToc;
 import vn.edu.tdc.lamdep.Model.danhMucDaDep;
 import vn.edu.tdc.lamdep.R;
-import vn.edu.tdc.lamdep.TapLuyen.TapBungActivity;
 
 public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
+    public DatabaseReference reference;
     private Context context;   // Màn hình hiện tại
     private LayoutInflater inflater;
 
@@ -35,21 +43,15 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
     }
 
     private ArrayList<danhMucDaDep> listFunction;
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         public ImageView imgicon;
         public TextView tvdanhmuc;
         public ViewHolder(View itemView) {
 
             super(itemView);
-            tvdanhmuc = (TextView) itemView.findViewById(R.id.tvDanhMucDaDep);
-            imgicon = (ImageView) itemView.findViewById(R.id.imgDanhMucDaDep);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, TriMun.class);
-                    context.startActivity(intent);
-                }
-            });
+            tvdanhmuc = (TextView) itemView.findViewById(R.id.tvdanhmuc);
+            imgicon = (ImageView) itemView.findViewById(R.id.imgicon);
+
         }
     }
 
@@ -66,14 +68,27 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DaDepAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final DaDepAdapter.ViewHolder viewHolder, final int i) {
         final danhMucDaDep dm = listFunction.get(i);
 
 
         // Set từng giá trị lên item
 
-        viewHolder.imgicon.setImageResource(dm.getHinhAnh());
-        viewHolder.tvdanhmuc.setText(dm.getTenDanhMuc());
+        Picasso.with(context).load(dm.getImg()).into(viewHolder.imgicon);
+        viewHolder.tvdanhmuc.setText(dm.getName());
+
+        // Bắt sự kiện nhấn vào một item
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DanhSachBaiViet.class);
+                intent.putExtra("id", dm.getId());
+                intent.putExtra("name", dm.getName());
+                Toast.makeText(context, dm.getId() + "", Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -82,8 +97,12 @@ public class DaDepAdapter extends RecyclerView.Adapter<DaDepAdapter.ViewHolder>{
         return listFunction.size();
     }
 
+    public interface OnItemClickedListener {
+        void onItemClick(View view,int idFunction);
 
-
-
-
+    }
+    private DaDepAdapter.OnItemClickedListener mClickedListener;
+    public void setOnclickListener(DaDepAdapter.OnItemClickedListener onclickListener){
+        mClickedListener = onclickListener;
+    }
 }
