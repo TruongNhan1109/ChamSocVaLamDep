@@ -84,7 +84,7 @@ public class DanhSachBaiVietAdapter extends RecyclerView.Adapter<DanhSachBaiViet
                 intent.putExtra("chuanbi",dm.getChuanbi() );
                 intent.putExtra("thuchien",dm.getThuchien() );
                 intent.putExtra("img", dm.getImgbaiviet());
-                Toast.makeText(context, dm.getTenbaiviet() + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, dm.getIdbaiviet() + "", Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);
             }
         });

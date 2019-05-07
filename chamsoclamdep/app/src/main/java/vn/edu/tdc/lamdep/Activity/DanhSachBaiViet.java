@@ -47,6 +47,7 @@ public class DanhSachBaiViet extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.rvDsBaiViet);
         recyclerView.setLayoutManager(new GridLayoutManager(DanhSachBaiViet.this,2));
+
         list = new ArrayList<>();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         reference = database.getReference().child("baiviet");
@@ -56,17 +57,13 @@ public class DanhSachBaiViet extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
-                {
+                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
                     DanhSachBaiViet_Model d = dataSnapshot1.getValue(DanhSachBaiViet_Model.class);
-
                     if (d.getIdbaiviet().compareTo(id) == 0) {
                         list.add(d);
                     }
-
-
+                    danhSachBaiVietAdapter = new DanhSachBaiVietAdapter( DanhSachBaiViet.this,list);
                 }
-                danhSachBaiVietAdapter = new DanhSachBaiVietAdapter(DanhSachBaiViet.this,list);
                 recyclerView.setAdapter(danhSachBaiVietAdapter);
             }
 
@@ -75,7 +72,6 @@ public class DanhSachBaiViet extends AppCompatActivity {
                 Toast.makeText(DanhSachBaiViet.this,"Đã xảy ra lỗi", Toast.LENGTH_LONG).show();
             }
         });
-
 
     }
 

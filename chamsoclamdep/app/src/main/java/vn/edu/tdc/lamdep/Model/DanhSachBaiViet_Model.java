@@ -1,28 +1,20 @@
 package vn.edu.tdc.lamdep.Model;
-
-import android.widget.EditText;
-
 public class DanhSachBaiViet_Model {
-    private String idbaiviet;
-
-    public DanhSachBaiViet_Model(String idbaiviet, String imgbaiviet, String thuchien, String chuanbi, String tenbaiviet, String mota) {
-        this.idbaiviet = idbaiviet;
-        this.imgbaiviet = imgbaiviet;
-        this.thuchien = thuchien;
-        this.chuanbi = chuanbi;
-        this.tenbaiviet = tenbaiviet;
-        this.mota = mota;
-    }
-
-    private String imgbaiviet;
-    private String thuchien;
     private String chuanbi;
+    private String idbaiviet;
+    private String imgbaiviet;
+    private String mota;
 
-    public DanhSachBaiViet_Model(EditText danhmuc, String imgbaiviet, EditText thuchien, EditText chuanbi, EditText tenbaiviet, EditText motabaiviet) {
+    public String getChuanbi() {
+        return chuanbi;
     }
 
-    private String tenbaiviet;
-    private String mota;
+    public DanhSachBaiViet_Model() {
+    }
+
+    public void setChuanbi(String chuanbi) {
+        this.chuanbi = chuanbi;
+    }
 
     public String getIdbaiviet() {
         return idbaiviet;
@@ -40,20 +32,12 @@ public class DanhSachBaiViet_Model {
         this.imgbaiviet = imgbaiviet;
     }
 
-    public String getThuchien() {
-        return thuchien;
+    public String getMota() {
+        return mota;
     }
 
-    public void setThuchien(String thuchien) {
-        this.thuchien = thuchien;
-    }
-
-    public String getChuanbi() {
-        return chuanbi;
-    }
-
-    public void setChuanbi(String chuanbi) {
-        this.chuanbi = chuanbi;
+    public void setMota(String mota) {
+        this.mota = mota;
     }
 
     public String getTenbaiviet() {
@@ -64,11 +48,23 @@ public class DanhSachBaiViet_Model {
         this.tenbaiviet = tenbaiviet;
     }
 
-    public String getMota() {
-        return mota;
+    public String getThuchien() {
+        return thuchien;
     }
 
-    public void setMota(String mota) {
-        this.mota = mota;
+    public void setThuchien(String thuchien) {
+        this.thuchien = thuchien;
     }
+
+    public DanhSachBaiViet_Model(String chuanbi, String idbaiviet, String imgbaiviet, String mota, String tenbaiviet, String thuchien) {
+        this.chuanbi = chuanbi;
+        this.idbaiviet = idbaiviet;
+        this.imgbaiviet = imgbaiviet;
+        this.mota = mota;
+        this.tenbaiviet = tenbaiviet;
+        this.thuchien = thuchien;
+    }
+
+    private String tenbaiviet;
+    private String thuchien;
 }

@@ -169,13 +169,12 @@ public class ThemBaiViet extends AppCompatActivity {
     }
     private void uploadAnh(){
         if(filePath!= null){
-            StorageReference fileRef = storageReference.child(System.currentTimeMillis()+ "."
-            +getFileExtension(filePath));
+            final StorageReference fileRef = storageReference.child(filePath.getLastPathSegment());
+            UploadTask uploadTask = fileRef.putFile(filePath);
             fileRef.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
+                                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                        @Override
+                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             String key = reference.push().getKey();
                             String tenbaiviet = edttenbaiviet.getText().toString();
                             String motabaiviet = edtmotabaiviet.getText().toString();
@@ -183,7 +182,7 @@ public class ThemBaiViet extends AppCompatActivity {
                             String thuchien =edtthuchien.getText().toString();
                             SpinnerData data = new SpinnerData();
                             String danhmuc = spnDanhMuc.getSelectedItem().toString();
-                            DanhSachBaiViet_Model list = new DanhSachBaiViet_Model(danhmuc,taskSnapshot.getUploadSessionUri().toString(),thuchien,chuanbi,tenbaiviet,motabaiviet);
+                            DanhSachBaiViet_Model list = new DanhSachBaiViet_Model(chuanbi,danhmuc,taskSnapshot.getStorage().getDownloadUrl().toString(),motabaiviet,tenbaiviet,thuchien);
                             reference.child(key).setValue(list);
                             Toast.makeText(ThemBaiViet.this,"Uploaded",Toast.LENGTH_LONG).show();
                         }
