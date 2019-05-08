@@ -235,17 +235,6 @@ public class DongHoTrangSuc extends AppCompatActivity {
                 onBackPressed();
                 return true;
 
-
-            //Khi người dùng chọn vào menu giỏ hàng di chuyển đến màn hình giỏ hàng
-            case R.id.menugiohang:
-                intent = new Intent(DongHoTrangSuc.this, cartActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.menuseachview:
-                 intent = new Intent(DongHoTrangSuc.this, TimKiemSanPham.class);
-                startActivity(intent);
-                break;
-
             default:
                 break;
 

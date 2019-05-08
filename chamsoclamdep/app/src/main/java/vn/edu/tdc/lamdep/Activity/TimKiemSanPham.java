@@ -43,6 +43,7 @@ import static vn.edu.tdc.lamdep.Activity.DanhSachSanPham.mangsanpham;
 import static vn.edu.tdc.lamdep.Activity.DanhSachSanPham.sanPhamAdapter;
 
 public class TimKiemSanPham extends AppCompatActivity {
+    // Khai báo thuộc tính
     public static RecyclerView rvsearchview;
     TextView txtkhongcodulieu;
     SearchView mSearchView;
@@ -82,9 +83,11 @@ public class TimKiemSanPham extends AppCompatActivity {
         mSearchView = (SearchView) itemSearch.getActionView();
         // set độ dài
         mSearchView.setMaxWidth(Integer.MAX_VALUE);
+        // setOnQueryTextListener khi người dùng chọn mới được tìm
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                // Gọi lại hàm tìm kiếm
                 SearchTenSanPham(query);
                 return false;
             }
@@ -121,7 +124,7 @@ public class TimKiemSanPham extends AppCompatActivity {
         progressDialog.show();
         if (CheckConnect.haveNetworkConnection(TimKiemSanPham.this)) {
             ApiInterface apiInterface = APISERVISE.getServise();
-            Call<List<sanPham>> listCall = apiInterface.GetSearchView(query);
+            Call<List<sanPham>> listCall = apiInterface.GetSearchView(query);// call lại hàm GetSearchView truyền vào một ký tự cần tìm
             listCall.enqueue(new Callback<List<sanPham>>() {
                 @Override
                 public void onResponse(Call<List<sanPham>> call, Response<List<sanPham>> response) {
@@ -131,6 +134,7 @@ public class TimKiemSanPham extends AppCompatActivity {
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                         rvsearchview.setLayoutManager(linearLayoutManager);
                         rvsearchview.setAdapter(searchViewAdapter);
+                        // Kiểm tra nếu dữ liệu tồn tại thì hiện lên danh sách ngược lại thông báo không tìm thấy
                         txtkhongcodulieu.setVisibility(View.GONE);
                         rvsearchview.setVisibility(View.VISIBLE);
                         searchViewAdapter.notifyDataSetChanged();

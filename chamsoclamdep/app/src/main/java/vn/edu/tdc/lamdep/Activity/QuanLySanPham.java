@@ -32,6 +32,7 @@ import vn.edu.tdc.lamdep.unitl.CheckConnect;
 
 public class QuanLySanPham extends AppCompatActivity {
 
+    //Khai báo thuộc tính
     ListView listViewquanlysanpham;
     ArrayList<danhMucSanPham> mangquanlysanpham;
     QuanTriVienAdapter quanTriVienAdapter;
@@ -47,6 +48,7 @@ public class QuanLySanPham extends AppCompatActivity {
     }
 
     private void setInvent() {
+        // Sự kiện chọn vào listview item di chuyển đến màn hình khác
         listViewquanlysanpham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

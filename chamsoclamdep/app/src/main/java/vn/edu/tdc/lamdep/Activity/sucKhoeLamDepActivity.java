@@ -237,15 +237,6 @@ public class sucKhoeLamDepActivity extends AppCompatActivity {
                 finish();
                 onBackPressed();
                 return true;
-            case R.id.menugiohang:
-                intent = new Intent(sucKhoeLamDepActivity.this, cartActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.menuseachview:
-                intent = new Intent(sucKhoeLamDepActivity.this, TimKiemSanPham.class);
-                startActivity(intent);
-                break;
-
             default:
                 break;
 

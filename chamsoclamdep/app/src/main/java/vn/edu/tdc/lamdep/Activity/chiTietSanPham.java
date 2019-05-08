@@ -34,12 +34,13 @@ import vn.edu.tdc.lamdep.R;
 import vn.edu.tdc.lamdep.unitl.CheckConnect;
 
 
-public class chiTietSanPham extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class chiTietSanPham extends AppCompatActivity {
+    //Khai báo thuộc tính
     ImageView imgicon, imgShow;
     TextView tvtensanpham, tvgiasanpham, tvmota, tvshowTenSP, txtluotthich;
     Spinner spinner, spinnerkichthuoc;
     Button btnthemhang, clickchonhinh, btnclose;
+    //Khi báo hàm ScaleGestureDetector
     ScaleGestureDetector scaleGestureDetector;
     int id = 0;
     String hinhAnh = "";
@@ -59,38 +60,40 @@ public class chiTietSanPham extends AppCompatActivity
         CashEventSpinner();
 
         //Bắt sự kiện phóng to thu nhỏ imageview
+        // khởi tạo
         scaleGestureDetector = new ScaleGestureDetector(this, new MyGesture());
 
         toolBar();
     }
 
-    //Khai báo gọi lại tool Bar và NavigationView
     private void toolBar() {
+        // Khởi tạo tool bar và thay thế action bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        // Loại bỏ tiêu đề tool bar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        // Hiển thị nút back
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     //Gọi class scale
     class MyGesture extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        // scale = 1.0F tỉ lệ ban đầu của image
         float scale = 1.0F, onScaleStart = 0, onScaleEnd = 0;
 
         @Override
         public boolean onScale(ScaleGestureDetector detector) {
             scale *= detector.getScaleFactor();
+            // phóng theo chiều ngang
             imgShow.setScaleX(scale);
+            // phóng theo chiều cao
             imgShow.setScaleY(scale);
             return super.onScale(detector);
         }
 
+        // khi bắt đầu scale
         @Override
         public boolean onScaleBegin(ScaleGestureDetector detector) {
             Toast.makeText(getApplicationContext(), "onScale start", Toast.LENGTH_SHORT).show();
@@ -99,6 +102,7 @@ public class chiTietSanPham extends AppCompatActivity
             return super.onScaleBegin(detector);
         }
 
+        // khi kết thúc scale
         @Override
         public void onScaleEnd(ScaleGestureDetector detector) {
             Toast.makeText(getApplicationContext(), "onScale End", Toast.LENGTH_SHORT).show();
@@ -109,6 +113,7 @@ public class chiTietSanPham extends AppCompatActivity
     }
 
     private void setInvent() {
+        // kích chọn vào button hiển thị một thông báo
         clickchonhinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,16 +133,13 @@ public class chiTietSanPham extends AppCompatActivity
                 });
 
 
+                // get liệu từ các màn hình
                 sanPham sp = (sanPham) getIntent().getSerializableExtra("thongtinsanpham");
                 Picasso.with(getApplicationContext()).load(sp.getHinhanhsanpham())
                         .placeholder(R.drawable.noiimage)
                         .error(R.drawable.error)
                         .into(imgShow);
                 tvshowTenSP.setText(sp.getTensanpham());
-
-
-                //Tạo hiệu ứng phóng to và thu nhỏ hình ảnh sản phẩm;
-
 
                 //Đóng dialog
                 btnclose.setOnClickListener(new View.OnClickListener() {
@@ -163,6 +165,7 @@ public class chiTietSanPham extends AppCompatActivity
         spinnerkichthuoc.setAdapter(stringArrayAdapter);
     }
 
+    // Khai báo các thuộc tính
     private void setControl() {
         imgicon = (ImageView) findViewById(R.id.imgicon);
         tvtensanpham = (TextView) findViewById(R.id.tensanpham);
@@ -186,19 +189,22 @@ public class chiTietSanPham extends AppCompatActivity
         yeuthich = sp.getYeuthich();
 
         tvtensanpham.setText(tenSanPham);
+        // định dạng giá tiền theo kiểu VNĐ
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         tvgiasanpham.setText("Giá: " + decimalFormat.format(giaTien) + "VNĐ");
         tvmota.setText(moTa);
         txtluotthich.setText(String.valueOf(yeuthich));
+        //Sử dụng thư viện picasso để get dữ liệu về
         Picasso.with(getApplicationContext()).load(hinhAnh)
                 .placeholder(R.drawable.noiimage)
                 .error(R.drawable.error)
                 .into(imgicon);
     }
 
+    // menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.add_cart, menu);
+        getMenuInflater().inflate(R.menu.add, menu);
         return true;
     }
 
@@ -207,79 +213,55 @@ public class chiTietSanPham extends AppCompatActivity
         Intent intent;
         switch (item.getItemId()) {
             case R.id.add:
+                // kiểm tra nếu mảng > 0 thì kiểm tra update số lượng sản phẩm
                 if (sanPhamActivity.manggiohang.size() > 0) {
                     int sl = Integer.parseInt(spinner.getSelectedItem().toString());
                     String kt = spinnerkichthuoc.getSelectedItem().toString();
-                    boolean ex = false;
+                    boolean ex = false;// kiểm tra ex == false
                     for (int i = 0; i < sanPhamActivity.manggiohang.size(); i++) {
+                        // Kiểm tra nếu như id sản phẩm == id thì cập nhật lại số lượng sp
                         if (sanPhamActivity.manggiohang.get(i).getIdsp() == id) {
+                            // Lấy số lượng cũ cộng dồn vào số lượng mới
                             sanPhamActivity.manggiohang.get(i).setSoLuong(sanPhamActivity.manggiohang.get(i).getSoLuong() + sl);
                             sanPhamActivity.manggiohang.get(i).setKichthuoc(sanPhamActivity.manggiohang.get(i).getKichthuoc().toString());
+                            // Kiểm tra số lượng > 10
                             if (sanPhamActivity.manggiohang.get(i).getSoLuong() >= 10) {
+                                // set số lượng = 10
                                 sanPhamActivity.manggiohang.get(i).setSoLuong(10);
                             }
+                            // Thay đổi giá tiền
                             sanPhamActivity.manggiohang.get(i).setGia(giaTien * sanPhamActivity.manggiohang.get(i).getSoLuong());
                             sanPhamActivity.manggiohang.get(i).setKichthuoc(sanPhamActivity.manggiohang.get(i).getKichthuoc());
-                            ex = true;
+                            ex = true;//nếu dk đúng thì ex = true
                         }
                     }
-                    if (ex == false) {
+                    if (ex == false) { // nêu ex = false không tìm thấy id trùng thêm sản phẩm mới vào giỏ hàng
                         //L?y s? lu?ng c?a Spinner
                         int soluong = Integer.parseInt(spinner.getSelectedItem().toString());
                         int Giamoi = soluong * giaTien;
-                        sanPhamActivity.manggiohang.add(new gioHang(id, tenSanPham, Giamoi, hinhAnh,moTa ,soluong, kt));
+                        sanPhamActivity.manggiohang.add(new gioHang(id, tenSanPham, Giamoi, hinhAnh, moTa, soluong, kt));
                     }
 
+                    // nếu mảng nhỏ hơn 0 thì add sản phẩm mới vào giỏ hàng
                 } else {
                     //L?y s? lu?ng c?a Spinner
                     String kt = spinnerkichthuoc.getSelectedItem().toString();
                     int soluong = Integer.parseInt(spinner.getSelectedItem().toString());
                     long Giamoi = soluong * giaTien;
-                    sanPhamActivity.manggiohang.add(new gioHang(id, tenSanPham, Giamoi, hinhAnh, moTa,soluong, kt));
+                    sanPhamActivity.manggiohang.add(new gioHang(id, tenSanPham, Giamoi, hinhAnh, moTa, soluong, kt));
                 }
                 intent = new Intent(chiTietSanPham.this, cartActivity.class);
                 startActivity(intent);
 
+            case android.R.id.home:
+                // Hủy màn hình
+                finish();
+                onBackPressed();
+                return true;
+            default:
+                break;
+
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    // sự kiện kích chọn vào navigationview chuyển màn hình
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        if (id == R.id.nav_home) {
-            if (CheckConnect.haveNetworkConnection(getApplicationContext())) {
-                Intent intent = new Intent(chiTietSanPham.this, MainActivity.class);
-                startActivity(intent);
-            } else {
-                CheckConnect.showToast_Short(getApplicationContext(), "Vui lòng kiểm tra lại kết nối mạng");
-            }
-        }
-        if (id == R.id.nav_sanpham) {
-            if (CheckConnect.haveNetworkConnection(getApplicationContext())) {
-                Intent intent = new Intent(chiTietSanPham.this, sanPhamActivity.class);
-                startActivity(intent);
-
-            } else {
-                CheckConnect.showToast_Short(getApplicationContext(), "Vui lòng kiểm tra lại kết nối mạng");
-            }
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }

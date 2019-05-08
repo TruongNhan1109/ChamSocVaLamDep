@@ -55,13 +55,10 @@ public class ChiTietDonHangAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.list_item_chitietdonhang, null);
-            viewHolder.tvmadonhang = view.findViewById(R.id.tvmadonhang);
             viewHolder.tvmasanpham = view.findViewById(R.id.tvmasanpham);
             viewHolder.tvtensanpham = view.findViewById(R.id.tvtensanpham);
             viewHolder.tvgiasanpham = view.findViewById(R.id.tvgiasanpham);
             viewHolder.tvmota = view.findViewById(R.id.tvmota);
-            viewHolder.tvsoluong = view.findViewById(R.id.tvsoluong);
-            viewHolder.tvkichthuoc = view.findViewById(R.id.tvkichthuoc);
             viewHolder.imgsanpham = view.findViewById(R.id.imgsanpham);
             view.setTag(viewHolder);
         } else {
@@ -78,9 +75,6 @@ public class ChiTietDonHangAdapter extends BaseAdapter {
         viewHolder.tvmota.setMaxLines(2);
         viewHolder.tvmota.setEllipsize(TextUtils.TruncateAt.END);
         viewHolder.tvmota.setText(ct.getMota());
-        viewHolder.tvsoluong.setText(ct.getSoluong());
-        viewHolder.tvsoluong.setText(ct.getSoluong());
-        viewHolder.tvkichthuoc.setText(ct.getKichthuoc());
         Picasso.with(context).load(ct.getHinhanhsanpham())
                 .placeholder(R.drawable.noiimage)
                 .error(R.drawable.error)

@@ -1,6 +1,7 @@
 package vn.edu.tdc.lamdep.Activity;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,6 +11,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -46,10 +48,13 @@ import vn.edu.tdc.lamdep.unitl.server;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    UserLocalStore userLocalStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        userLocalStore = new UserLocalStore(this);
 
 
         initToolBar();
@@ -116,6 +121,7 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        User user = userLocalStore.getLoggedInUser();
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -177,14 +183,68 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_danhgiaungdung:
                 break;
 
-            case R.id.nav_doimatkhau:
-                intent = new Intent(this,DoiMatKhau.class);
+            case R.id.nav_dangnhap:
+                intent = new Intent(this,LoginActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.nav_dangxuat:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Logout");
+                builder.setMessage("Username : " + user.username + "\nEmail :" + user.email);
+                builder.setCancelable(false);
+                builder.setPositiveButton("Trở về", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this, "Mời bạn tiếp tục mua sắm", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("Logout", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //Code Logout
+                        userLocalStore.clearUserData();
+                        userLocalStore.setUserLoggedIn(false);
+                        Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(loginIntent);
+                        Toast.makeText(MainActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
                 break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (authenticate() == true) {
+            displayUserDetails();
+//            userLocalStore.clearUserData();
+//            userLocalStore.setUserLoggedIn(false);
+//            Intent loginIntent = new Intent(this, LoginActivity.class);
+//            startActivity(loginIntent);
+        }
+    }
+
+    private boolean authenticate() {
+        if (userLocalStore.getLoggedInUser() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return false;
+        }
+        return true;
+    }
+
+    private void displayUserDetails() {
+        User user = userLocalStore.getLoggedInUser();
+        Toast.makeText(getApplicationContext(),
+                user.username,
+                Toast.LENGTH_SHORT).show();
+
     }
 }

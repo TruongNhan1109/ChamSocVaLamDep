@@ -61,9 +61,13 @@
                 android:title="Đánh giá ứng dụng" />
 
             <item
-                android:id="@+id/nav_doimatkhau"
+                android:id="@+id/nav_dangnhap"
                 android:icon="@drawable/icon_dang_nhap"
-                android:title="Đổi mật khẩu" />
+                android:title="Login" />
+            <item
+                android:id="@+id/nav_dangxuat"
+                android:icon="@drawable/profile_icon"
+                android:title="Logout" />
         </menu>
     </item>
 

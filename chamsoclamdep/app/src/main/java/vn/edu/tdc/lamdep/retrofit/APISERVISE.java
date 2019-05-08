@@ -2,7 +2,8 @@ package vn.edu.tdc.lamdep.retrofit;
 
 public class APISERVISE {
 
-    public static final String base_url = "http://192.168.1.7/server/";
+    //Truyền địa chỉ url
+    public static final String base_url = "https://chamsoclamdep.000webhostapp.com/server/";
 
     public static ApiInterface getServise(){
         //khởi tạo

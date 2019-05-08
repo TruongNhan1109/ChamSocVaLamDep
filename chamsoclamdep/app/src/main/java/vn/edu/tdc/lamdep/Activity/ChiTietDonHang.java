@@ -48,63 +48,9 @@ public class ChiTietDonHang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quan_ly_don_hang);
-        setControl();
+
         toolBar();
-        getData();
-    }
 
-    private void setControl() {
-        listView = findViewById(R.id.lvlchitietdonhang);
-        mangdonhang = new ArrayList<>();
-        chiTietDonHangAdapter = new ChiTietDonHangAdapter(mangdonhang, ChiTietDonHang.this);
-        listView.setAdapter(chiTietDonHangAdapter);
-    }
-
-    private void getData() {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, server.getDonHang, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                int id = 0;
-                String tenkhachhang = "";
-                String sodienthoai = "";
-                String email = "";
-                String diachi = "";
-                if (response != null && response.length() != 2) {
-                    try {
-                        JSONArray jsonArray = new JSONArray(response);
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            id = jsonObject.getInt("id");
-                            tenkhachhang = jsonObject.getString("tenkhachhang");
-                            sodienthoai = jsonObject.getString("sodienthoai");
-                            email = jsonObject.getString("email");
-                            diachi = jsonObject.getString("diachi");
-                            mangdonhang.add(new DonHang(id, tenkhachhang, sodienthoai, email, diachi));
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        progressDialog.dismiss();
-                    }
-                } else {
-                    CheckConnect.showToast_Short(getApplicationContext(), "\n" +
-                            "The data has run out");
-                }
-                quanLyDonHangAdapter.notifyDataSetChanged();
-                progressDialog.dismiss();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("Volley", error.toString());
-                progressDialog.dismiss();
-            }
-        });
-        requestQueue.add(stringRequest);
     }
 
 

@@ -37,6 +37,7 @@ import vn.edu.tdc.lamdep.retrofit.ApiInterface;
 import vn.edu.tdc.lamdep.unitl.CheckConnect;
 
 public class AddProduct extends AppCompatActivity {
+    //Khai báo thuộc tính
     EditText txttensanpham, txtgiasanpham, txtmota;
     Spinner spinnerloaisp, spinnerluotlike;
     ImageView imgchonanh;
@@ -57,6 +58,7 @@ public class AddProduct extends AppCompatActivity {
 
     //Tạo mảng cho spinner
     private void CashEventSpinner() {
+        //Khai báo mảng số nguyên
         Integer[] loaisanpham = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
         ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer>(this, R.layout.support_simple_spinner_dropdown_item, loaisanpham);
         spinnerloaisp.setAdapter(arrayAdapter);
@@ -93,6 +95,7 @@ public class AddProduct extends AppCompatActivity {
                 final String mota = txtmota.getText().toString();
                 final int yeuthich = Integer.parseInt(spinnerluotlike.getSelectedItem().toString());
 
+                //Kiểm tra nếu người dung chưa nhập dữ liệu thì yêu cầu nhập
                 if (tensp.length() > 0 && spinnerloaisp.getSelectedItem().toString().length() > 0 && txtgiasanpham.getText().toString().length() > 0
                 && mota.length() > 0 && spinnerluotlike.getSelectedItem().toString().length() > 0 )
                 {

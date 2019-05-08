@@ -22,33 +22,43 @@ import vn.edu.tdc.lamdep.Model.sanPham;
  */
 
 public interface ApiInterface {
+
+    //get sản phẩm mới nhất
     @GET("sanphammoinhat.php")
     Call<List<sanPham>> GetDataSanPhamMoiNhat();
 
+    // GetDataSearchView
     @GET("sanpham.php")
     Call<List<sanPham>> GetDataSearchView();
 
+    // search view
     @FormUrlEncoded
     @POST("search.php")
     Call<List<sanPham>> GetSearchView(@Field("tukhoa") String tukhoa);
 
+    // get All product
     @GET("sanpham.php")
     Call<List<sanPham>> GetAllProduct();
 
+    // getdataproductlike
     @GET("yeuthich.php")
     Call<List<sanPham>> GetDataProductLike();
 
+    // post lên server số lượng lượt thích
     @FormUrlEncoded
     @POST("updatelike.php")
     Call<String> updatelike(@Field("luotthich") String luotthich, @Field("idsanphamyeuthich") String idsanphamyeuthich);
 
+    // get sản phẩm bán chạy nhất
     @GET("getsanphambanchay.php")
     Call<List<SanPhamBanChay>> GetDataProductBanChay();
 
+    // Post ảnh lên server
     @Multipart
     @POST("uploadanh.php")
     Call<String> GetUpLoadImages(@Part MultipartBody.Part photo);
 
+    // Post một sản phẩm lên server
     @FormUrlEncoded
     @POST("themsanpham.php")
     Call<String> InsertDataProduct(@Field("tensanpham") String tensanpham,
@@ -58,6 +68,7 @@ public interface ApiInterface {
                                    @Field("idsanpham") int idsanpham,
                                    @Field("yeuthich") int yeuthich);
 
+    // Post sản phẩm theo id
     @FormUrlEncoded
     @POST("updateproduct.php")
     Call<String> UpdateDataProduct(@Field("id") int id,
@@ -68,18 +79,20 @@ public interface ApiInterface {
                                    @Field("idsanpham") int idsanpham,
                                    @Field("yeuthich") int yeuthich);
 
+    // Post ảnh lên server
     @FormUrlEncoded
     @POST("updateproduct.php")
     Call<String> UpdateImages(@Field("id") int id,
                               @Field("hinhanhsanpham") String hinhanhsanpham);
 
-    //DD
+    //Đổi mật khẩu
     @FormUrlEncoded
     @POST("updatepass.php")
     Call<String> UpdatePassword(@Field("email") String email,
                               @Field("matkhau") String matkhau);
 
 
+    // Delete product
     @FormUrlEncoded
     @POST("deleteproduct.php")
     Call<String> DeleteProduct(@Field("id") int id);

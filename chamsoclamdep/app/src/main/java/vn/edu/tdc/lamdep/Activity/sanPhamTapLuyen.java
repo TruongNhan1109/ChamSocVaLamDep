@@ -156,6 +156,7 @@ public class sanPhamTapLuyen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // sự kiện vuốt của listview
         lvtapluyen.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -197,7 +198,9 @@ public class sanPhamTapLuyen extends AppCompatActivity {
         mangtapluyen = new ArrayList<>();
         tapLuyenAdapter = new sanPhamTapLuyenAdapter(sanPhamTapLuyen.this, mangtapluyen);
         lvtapluyen.setAdapter(tapLuyenAdapter);
+        //Gợi phương thức gán layout
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        // truyền thanh progressbar
         footerview = inflater.inflate(R.layout.progressbar, null);
         mHandler = new mHandler();
     }
@@ -251,18 +254,6 @@ public class sanPhamTapLuyen extends AppCompatActivity {
                 finish();
                 onBackPressed();
                 return true;
-
-
-            //Khi người dùng chọn vào menu giỏ hàng di chuyển đến màn hình giỏ hàng
-            case R.id.menugiohang:
-                intent = new Intent(sanPhamTapLuyen.this, cartActivity.class);
-                startActivity(intent);
-                break;
-                //Khi người dùng chọn vào menu giỏ hàng di chuyển đến màn hình giỏ hàng
-            case R.id.menuseachview:
-                intent = new Intent(sanPhamTapLuyen.this, TimKiemSanPham.class);
-                startActivity(intent);
-                break;
 
             default:
                 break;

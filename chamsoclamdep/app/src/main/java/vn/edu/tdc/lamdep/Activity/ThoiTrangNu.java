@@ -237,15 +237,6 @@ public class ThoiTrangNu extends AppCompatActivity {
                 finish();
                 onBackPressed();
                 return true;
-            case R.id.menugiohang:
-                intent = new Intent(ThoiTrangNu.this, cartActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.menuseachview:
-                intent = new Intent(ThoiTrangNu.this, TimKiemSanPham.class);
-                startActivity(intent);
-                break;
-
             default:
                 break;
 

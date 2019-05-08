@@ -23,7 +23,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.listBaiViet"></activity>
+        <activity android:name=".Activity.DanhSachAccont"></activity>
+        <activity android:name=".Activity.listBaiViet" />
         <activity android:name=".Activity.DangKy" />
         <activity android:name=".Activity.DangNhap" />
         <activity android:name=".Activity.ProductLike" />
@@ -93,7 +94,7 @@
             android:name=".Activity.sanPhamActivity"
             android:label="Danh mục sản phẩm"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Activity.sanPhamTapLuyen"
             android:label="Sản phẩm tập luyện"
@@ -113,7 +114,7 @@
             android:name=".Activity.chiTietSanPham"
             android:label="Chi tiết sản phẩm"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Activity.showImagesProduct"
             android:screenOrientation="portrait" />
@@ -135,7 +136,7 @@
         <activity
             android:name=".Activity.DanhSachBaiViet"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activity.BaiViet"
             android:label="Bài viết"
