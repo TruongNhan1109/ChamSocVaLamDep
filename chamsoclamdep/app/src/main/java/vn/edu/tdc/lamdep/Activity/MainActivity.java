@@ -1,4 +1,4 @@
-package vn.edu.tdc.lamdep.Activity;
+﻿package vn.edu.tdc.lamdep.Activity;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -19,6 +19,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -39,6 +41,7 @@ import vn.edu.tdc.lamdep.Fragment.DangDep;
 import vn.edu.tdc.lamdep.Fragment.Home;
 import vn.edu.tdc.lamdep.Fragment.MacDep;
 import vn.edu.tdc.lamdep.Fragment.MakeUp;
+import vn.edu.tdc.lamdep.Fragment.SanPham;
 import vn.edu.tdc.lamdep.Fragment.TapLuyen;
 import vn.edu.tdc.lamdep.Fragment.TocDep;
 import vn.edu.tdc.lamdep.R;
@@ -49,9 +52,12 @@ import vn.edu.tdc.lamdep.unitl.server;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     UserLocalStore userLocalStore;
+    private ImageButton imgbtnTocDep,imgbtnHome, imgbtnMacDep, imgbtnMakeUp, imgbtnDaDep, imgbtnDangDep,imgbtnTapLuyen,imgbtnSanPham;
+    private TextView tvTocDep,tvHome, tvMakeUp, tvDaDep, tvMacDep, tvDangDep,tvTapLuyen,tvSanPham;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         userLocalStore = new UserLocalStore(this);
@@ -65,7 +71,8 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = new Home();
         ft.replace(R.id.content_main, fragment);
         ft.commit();
-
+        setControl();
+        setEvent();
 
 
     }
@@ -219,6 +226,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -246,5 +254,243 @@ public class MainActivity extends AppCompatActivity
                 user.username,
                 Toast.LENGTH_SHORT).show();
 
+    public void setControl(){
+        imgbtnTocDep = (ImageButton) findViewById(R.id.imgbtnTocDep);
+        imgbtnHome =(ImageButton) findViewById(R.id.imgbtnhome);
+        imgbtnMacDep = (ImageButton) findViewById(R.id.imgbtnMacDep);
+        imgbtnMakeUp = (ImageButton) findViewById(R.id.imgbtnMakeUp);
+        imgbtnDaDep = (ImageButton) findViewById(R.id.imgbtnDaDep);
+        imgbtnDangDep = (ImageButton) findViewById(R.id.imgbtnDangDep);
+        imgbtnTapLuyen = (ImageButton)findViewById(R.id.imgbtnTapLuyen);
+        imgbtnSanPham = (ImageButton) findViewById(R.id.imgbtnSanPham);
+        tvTocDep =(TextView) findViewById(R.id.tvTocDep);
+        tvHome =(TextView) findViewById(R.id.tvHome);
+        tvMakeUp = (TextView)findViewById(R.id.tvMakeUp);
+        tvMacDep = (TextView) findViewById(R.id.tvMacDep);
+        tvDangDep =(TextView) findViewById(R.id.tvDangDep);
+        tvDaDep =(TextView)findViewById(R.id.tvDaDep);
+        tvTapLuyen  = (TextView) findViewById(R.id.tvTapLuyen);
+        tvSanPham  = (TextView) findViewById(R.id.tvSanPham);
+
+    }
+    public void setEvent(){
+                //setEvent
+        imgbtnTocDep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgbtnTocDep.setSelected(true);
+                imgbtnMakeUp.setSelected(false);
+                imgbtnMacDep.setSelected(false);
+                imgbtnDaDep.setSelected(false);
+                imgbtnDangDep.setSelected(false);
+                imgbtnHome.setSelected(false);
+                imgbtnTapLuyen.setSelected(false);
+                tvTapLuyen.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvTocDep.setTextColor(getResources().getColor(R.color.iconColorPressed));
+                tvMakeUp.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMacDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDaDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDangDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvHome.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvSanPham.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                imgbtnSanPham.setSelected(false);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                Fragment fragment = new TocDep();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+        });
+
+        //Home
+        imgbtnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgbtnTocDep.setSelected(false);
+                imgbtnMakeUp.setSelected(false);
+                imgbtnMacDep.setSelected(false);
+                imgbtnDaDep.setSelected(false);
+                imgbtnDangDep.setSelected(false);
+                imgbtnHome.setSelected(true);
+                imgbtnTapLuyen.setSelected(false);
+                tvTapLuyen.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvHome.setTextColor(getResources().getColor(R.color.iconColorPressed));
+                tvTocDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMacDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDaDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDangDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMakeUp.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvSanPham.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                imgbtnSanPham.setSelected(false);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                Fragment fragment = new Home();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+        });
+        //MakeUp
+        imgbtnMakeUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgbtnTocDep.setSelected(false);
+                imgbtnMakeUp.setSelected(true);
+                imgbtnMacDep.setSelected(false);
+                imgbtnDaDep.setSelected(false);
+                imgbtnDangDep.setSelected(false);
+                imgbtnHome.setSelected(false);
+                imgbtnTapLuyen.setSelected(false);
+                tvTapLuyen.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMakeUp.setTextColor(getResources().getColor(R.color.iconColorPressed));
+                tvTocDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMacDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDaDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDangDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+
+                tvHome.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvSanPham.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                imgbtnSanPham.setSelected(false);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                Fragment fragment = new MakeUp();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+        });
+
+        //Mặc đẹp
+        imgbtnMacDep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgbtnTocDep.setSelected(false);
+                imgbtnMakeUp.setSelected(false);
+                imgbtnMacDep.setSelected(true);//
+                imgbtnDaDep.setSelected(false);
+                imgbtnDangDep.setSelected(false);
+                imgbtnHome.setSelected(false);
+                imgbtnTapLuyen.setSelected(false);
+                tvTapLuyen.setTextColor(getResources().getColor(R.color.iconColorNormal));
+
+                tvMacDep.setTextColor(getResources().getColor(R.color.iconColorPressed));
+                tvTocDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMakeUp.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDaDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDangDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+
+                tvHome.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvSanPham.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                imgbtnSanPham.setSelected(false);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                Fragment fragment = new MacDep();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+        });
+
+        //Da đẹp
+        imgbtnDaDep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgbtnTocDep.setSelected(false);
+                imgbtnMakeUp.setSelected(false);
+                imgbtnMacDep.setSelected(false);
+                imgbtnDaDep.setSelected(true);
+                imgbtnDangDep.setSelected(false);
+                imgbtnHome.setSelected(false);
+                imgbtnTapLuyen.setSelected(false);
+                tvDaDep.setTextColor(getResources().getColor(R.color.iconColorPressed));
+                tvTocDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMacDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMakeUp.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDangDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvTapLuyen.setTextColor(getResources().getColor(R.color.iconColorNormal));
+
+                tvHome.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvSanPham.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                imgbtnSanPham.setSelected(false);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                Fragment fragment = new DaDep();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+        });
+        //Dáng đẹp
+        imgbtnDangDep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgbtnTocDep.setSelected(false);
+                imgbtnMakeUp.setSelected(false);
+                imgbtnMacDep.setSelected(false);
+                imgbtnDaDep.setSelected(false);
+                imgbtnDangDep.setSelected(true);
+                imgbtnHome.setSelected(false);
+                imgbtnTapLuyen.setSelected(false);
+                tvDangDep.setTextColor(getResources().getColor(R.color.iconColorPressed));
+                tvTapLuyen.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvTocDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMacDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDaDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMakeUp.setTextColor(getResources().getColor(R.color.iconColorNormal));
+
+                tvHome.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvSanPham.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                imgbtnSanPham.setSelected(false);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                Fragment fragment = new DangDep();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+        });
+
+        //Tap luyen
+        imgbtnTapLuyen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgbtnTocDep.setSelected(false);
+                imgbtnMakeUp.setSelected(false);
+                imgbtnMacDep.setSelected(false);
+                imgbtnDaDep.setSelected(false);
+                imgbtnDangDep.setSelected(false);
+                imgbtnHome.setSelected(false);
+                imgbtnTapLuyen.setSelected(true);
+                tvTapLuyen.setTextColor(getResources().getColor(R.color.iconColorPressed));
+                tvTocDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDaDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMacDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMakeUp.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDangDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+
+                tvHome.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvSanPham.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                imgbtnSanPham.setSelected(false);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                Fragment fragment = new TapLuyen();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+        });
+
+        imgbtnSanPham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgbtnTocDep.setSelected(false);
+                imgbtnMakeUp.setSelected(false);
+                imgbtnMacDep.setSelected(false);
+                imgbtnDaDep.setSelected(false);
+                imgbtnDangDep.setSelected(false);
+                imgbtnHome.setSelected(false);
+                imgbtnSanPham.setSelected(true);
+                tvSanPham.setTextColor(getResources().getColor(R.color.iconColorPressed));
+                tvTocDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDaDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMacDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvMakeUp.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvDangDep.setTextColor(getResources().getColor(R.color.iconColorNormal));
+
+                tvHome.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                tvTapLuyen.setTextColor(getResources().getColor(R.color.iconColorNormal));
+                imgbtnTapLuyen.setSelected(false);
+
+                Intent intent = new Intent(MainActivity.this, sanPhamActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

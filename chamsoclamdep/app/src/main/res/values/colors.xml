@@ -9,7 +9,8 @@
     <color name="color_btnSPLQ">#FF9900</color>
 
 
-
+    <color name="iconColorPressed">#FFAEC9</color>
+    <color name="iconColorNormal">#000000</color>
     <color name="startblue">#ffffff</color>
     <color name="colorToolBarTitle">#09c6df</color>
     <color name="endblue">#0bcce6</color>

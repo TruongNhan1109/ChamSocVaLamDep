@@ -36,7 +36,7 @@
                 android:layout_alignParentLeft="true"
                 android:text="Tổng hợp"
                 android:textStyle="bold"
-                android:textColor="#FF72B7C9"
+                android:textColor="#3F51B5"
                 android:textSize="25dp" />
             <ImageButton
                 android:layout_width="50dp"

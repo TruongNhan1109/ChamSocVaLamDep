@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="vn.edu.tdc.lamdep">
 
@@ -144,6 +144,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activity.ThemBaiViet"
+            android:label="Bài viết"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.listTapLuyen"
+            android:label="Bài viết"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.BatDau"
             android:label="Bài viết"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
