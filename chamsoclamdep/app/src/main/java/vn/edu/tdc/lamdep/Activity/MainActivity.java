@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(getApplicationContext(),
                 user.username,
                 Toast.LENGTH_SHORT).show();
-
+    }
     public void setControl(){
         imgbtnTocDep = (ImageButton) findViewById(R.id.imgbtnTocDep);
         imgbtnHome =(ImageButton) findViewById(R.id.imgbtnhome);
