@@ -23,7 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.listBaiViet"></activity>
+        <activity android:name=".Activity.listBaiViet">
+
+        </activity>
         <activity android:name=".Activity.DangKy" />
         <activity android:name=".Activity.DangNhap" />
         <activity android:name=".Activity.ProductLike" />

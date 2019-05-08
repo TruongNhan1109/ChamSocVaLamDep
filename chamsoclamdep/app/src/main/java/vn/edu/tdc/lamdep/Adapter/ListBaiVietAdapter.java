@@ -9,13 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import vn.edu.tdc.lamdep.Activity.chiTietSanPham;
+import vn.edu.tdc.lamdep.Activity.listBaiViet;
 import vn.edu.tdc.lamdep.Model.DanhSachBaiViet_Model;
 import vn.edu.tdc.lamdep.Model.SanPhamBanChay;
 import vn.edu.tdc.lamdep.Model.sanPham;
@@ -41,7 +45,7 @@ public class ListBaiVietAdapter extends RecyclerView.Adapter<ListBaiVietAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ITemHolder iTemHolder, int i) {
-        DanhSachBaiViet_Model ds = arraybaiviet.get(i);
+        final DanhSachBaiViet_Model ds = arraybaiviet.get(i);
         iTemHolder.txttenbaiviet.setText(ds.getTenbaiviet());
         Picasso.with(context).load(ds.getImgbaiviet())
                 .placeholder(R.drawable.noiimage)
@@ -50,10 +54,20 @@ public class ListBaiVietAdapter extends RecyclerView.Adapter<ListBaiVietAdapter.
         iTemHolder.imgdelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                CheckConnect.showToast_Short(context,"Delete");
+                deleteBaiViet();
+                Intent intent = new Intent(context, listBaiViet.class);
+                context.startActivity(intent);
+//                Toast.makeText(context, ds.getIdbaiviet() + "", Toast.LENGTH_SHORT).show();
+               CheckConnect.showToast_Short(context,"Deleted");
             }
         });
+
+    }
+    private void deleteBaiViet(){
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("baiviet").push().getRef();
+        databaseReference.removeValue();
+//        Toast.makeText(context, databaseReference + "", Toast.LENGTH_SHORT).show();
 
     }
 
