@@ -1,4 +1,4 @@
-﻿package vn.edu.tdc.lamdep.Activity;
+package vn.edu.tdc.lamdep.Activity;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
